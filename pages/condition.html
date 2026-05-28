@@ -1,0 +1,944 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>V2 mid-fi · Condition · Boulder Biologics</title>
+<link rel="icon" type="image/png" href="../assets/logo-stacked.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bb-teal-100:  #e6f6f6;
+    --bb-teal-200:  #b9e5e7;
+    --bb-teal-300:  #74cdd1;
+    --bb-teal-500:  #04979d;
+    --bb-teal-600:  #067e92;
+    --bb-teal-700:  #0f6387;
+    --bb-blue-400:  #2a6aa3;
+    --bb-blue-500:  #15457a;
+    --bb-blue-600:  #103864;
+    --bb-blue-700:  #0c2a4d;
+    --bb-navy-500:  #07172a;
+    --bb-navy-600:  #050f1c;
+    --bb-bone-50:   #fbfaf7;
+    --bb-bone-100:  #f4f1ea;
+    --bb-stone-200: #e7e3da;
+    --bb-stone-300: #d2cec3;
+
+    --ink:        var(--bb-navy-500);
+    --ink-2:      #1f2d3f;
+    --muted:      #5b6877;
+    --subtle:     #8a929b;
+    --rule:       var(--bb-stone-200);
+    --rule-soft:  #ebe9e2;
+    --paper:      var(--bb-bone-50);
+    --paper-2:    var(--bb-bone-100);
+    --white:      #ffffff;
+    --dark:       var(--bb-navy-500);
+
+    --brand-primary:       var(--bb-blue-500);
+    --brand-primary-hover: var(--bb-blue-600);
+    --brand-accent:        var(--bb-teal-500);
+    --brand-accent-hover:  var(--bb-teal-600);
+    --brand-accent-dim:    var(--bb-teal-700);
+
+    --font-display: 'Montserrat', system-ui, sans-serif;
+    --font-body:    'Source Sans 3', system-ui, sans-serif;
+    --font-serif:   'Source Serif 4', Georgia, serif;
+    --font-mono:    'IBM Plex Mono', ui-monospace, monospace;
+
+    --max:    1240px;
+    --gutter: 32px;
+
+    --r-md: 8px;
+    --r-lg: 14px;
+    --r-xl: 20px;
+
+    --ease:   cubic-bezier(0.2, 0.7, 0.2, 1);
+    --dur:    220ms;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  img { display: block; max-width: 100%; }
+
+  /* ── Mid-fi build banner ──────────────────────────────────────────── */
+  .build-banner {
+    position: fixed; right: 18px; bottom: 18px; z-index: 80;
+    background: var(--white); border: 1px solid var(--ink);
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted);
+    padding: 7px 10px; border-radius: 4px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    max-width: 360px; line-height: 1.5;
+  }
+  .build-banner strong { color: var(--ink); font-weight: 500; }
+
+  /* ── Type ─────────────────────────────────────────────────────────── */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--brand-primary);
+    margin: 0 0 14px;
+  }
+  h1.h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(36px, 4.6vw, 56px);
+    line-height: 1.04;
+    letter-spacing: -0.022em;
+    margin: 0 0 18px;
+    text-wrap: balance;
+  }
+  h2.h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.1;
+    letter-spacing: -0.018em;
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+  .lede {
+    font-family: var(--font-serif);
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    margin: 0 0 28px;
+    max-width: 62ch;
+  }
+  p { margin: 0 0 14px; color: var(--ink-2); }
+
+  /* ── Buttons ──────────────────────────────────────────────────────── */
+  .btn {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 13px 22px;
+    border-radius: var(--r-md);
+    cursor: pointer;
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: all var(--dur) var(--ease);
+    white-space: nowrap;
+  }
+  .btn-primary { background: var(--brand-primary); color: var(--white); box-shadow: 0 1px 2px rgba(15, 69, 122, 0.16); }
+  .btn-primary:hover { background: var(--brand-primary-hover); transform: translateY(-1px); box-shadow: 0 6px 18px rgba(15, 69, 122, 0.22); }
+  .btn-outline { background: transparent; color: var(--brand-primary); border-color: var(--brand-primary); }
+  .btn-outline:hover { background: var(--brand-primary); color: var(--white); }
+  .btn-sm { padding: 9px 14px; font-size: 13.5px; border-radius: 6px; }
+
+  /* ── Header ───────────────────────────────────────────────────────── */
+  .announce {
+    background: var(--dark); color: rgba(255,255,255,0.95);
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 16px; letter-spacing: 0.01em;
+    padding: 14px 32px;
+    display: flex; justify-content: center; align-items: center; gap: 24px; flex-wrap: wrap;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .announce .sep { width: 5px; height: 5px; border-radius: 999px; background: var(--bb-teal-300); }
+  .announce a { color: var(--bb-teal-200); text-decoration: none; font-weight: 700; }
+  .announce a:hover { color: var(--white); }
+
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(247, 245, 239, 0.88);
+    backdrop-filter: saturate(140%) blur(12px);
+    -webkit-backdrop-filter: saturate(140%) blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .site-header__inner {
+    max-width: var(--max); margin: 0 auto;
+    padding: 14px var(--gutter);
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; flex-wrap: nowrap;
+  }
+  .site-header__logo { flex: 0 0 auto; display: inline-flex; align-items: center; text-decoration: none; }
+  .site-header__logo img { height: 44px; width: auto; display: block; }
+  @media (max-width: 1180px) { .site-header__logo img { height: 38px; } }
+  .site-header nav { display: flex; gap: 4px; flex: 1 1 auto; min-width: 0; justify-content: center; flex-wrap: nowrap; }
+  .site-header nav a {
+    font-family: var(--font-display); font-weight: 600; font-size: 14.5px;
+    color: var(--ink); padding: 9px 13px; border-radius: 6px;
+    text-decoration: none; white-space: nowrap;
+    transition: background var(--dur) var(--ease);
+  }
+  .site-header nav a:hover { background: var(--paper-2); }
+  .site-header nav a[aria-current="page"] { color: var(--brand-primary); }
+  .site-header__cta { display: flex; align-items: center; gap: 14px; flex: 0 0 auto; }
+  .call-link {
+    font-family: var(--font-body); font-size: 13px; color: var(--muted);
+    display: inline-flex; align-items: center; gap: 6px;
+    text-decoration: none; font-weight: 600; white-space: nowrap;
+  }
+  @media (max-width: 1180px) {
+    .site-header nav { gap: 0; }
+    .site-header nav a { padding: 9px 10px; font-size: 14px; }
+    .site-header .call-link[href^="tel:"] { display: none; }
+  }
+  @media (max-width: 1040px) {
+    .site-header nav a[data-priority="low"] { display: none; }
+  }
+
+  /* ── Section scaffolding ──────────────────────────────────────────── */
+  section { padding: 80px var(--gutter); }
+  section .inner { max-width: var(--max); margin: 0 auto; }
+  section.alt { background: var(--paper-2); }
+
+  /* ── Breadcrumb ───────────────────────────────────────────────────── */
+  .crumbs {
+    max-width: var(--max); margin: 0 auto;
+    padding: 22px var(--gutter) 0;
+    font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.04em;
+    color: var(--muted);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .crumbs a { color: var(--muted); text-decoration: none; }
+  .crumbs a:hover { color: var(--ink); }
+  .crumbs .cur { color: var(--ink); }
+  .crumbs .sep { color: var(--subtle); }
+
+  /* ── Condition hero ───────────────────────────────────────────────── */
+  .cond-hero { padding: 28px var(--gutter) 64px; }
+  .cond-hero__grid {
+    max-width: var(--max); margin: 0 auto;
+    display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: end;
+  }
+  .cond-hero h1 { margin-bottom: 18px; }
+  .cond-hero__diagnoses {
+    display: flex; flex-wrap: wrap; gap: 6px; margin: 18px 0 28px;
+  }
+  .chip {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em;
+    text-transform: uppercase; color: var(--ink);
+    border: 1px solid var(--rule); padding: 5px 10px; border-radius: 999px;
+    background: var(--white);
+    white-space: nowrap;
+  }
+  .cond-hero__cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* Quick-facts card */
+  .facts-card {
+    background: var(--white); border: 1px solid var(--rule);
+    border-radius: var(--r-lg); padding: 28px;
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .facts-card__lbl {
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .facts-card__row { display: grid; grid-template-columns: 110px 1fr; gap: 14px; align-items: start; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
+  .facts-card__row:first-of-type { padding-top: 0; border-top: none; }
+  .facts-card__k {
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted); line-height: 1.45; padding-top: 2px;
+  }
+  .facts-card__v {
+    font-family: var(--font-body); font-size: 14.5px; color: var(--ink-2);
+    line-height: 1.5; margin: 0;
+  }
+  .facts-card__v strong { color: var(--ink); font-weight: 600; }
+
+  /* ── Therapies for this condition ─────────────────────────────────── */
+  .therapies__head { max-width: var(--max); margin: 0 auto 36px; }
+  .therapies__head .lede { max-width: 56ch; margin: 0; }
+  .therapies__grid {
+    max-width: var(--max); margin: 0 auto;
+    display: grid; gap: 18px;
+  }
+  .therapies__grid[data-count="1"] { grid-template-columns: minmax(0, 720px); justify-content: center; }
+  .therapies__grid[data-count="2"] { grid-template-columns: repeat(2, 1fr); }
+  .therapies__grid[data-count="3"] { grid-template-columns: repeat(3, 1fr); }
+  .therapy-card {
+    background: var(--white); border: 1px solid var(--rule);
+    border-radius: var(--r-lg); padding: 28px;
+    display: flex; flex-direction: column; gap: 14px;
+    transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  }
+  .therapy-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
+  .therapy-card .num {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--muted);
+    margin: 0;
+  }
+  .therapy-card h3 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 20px; letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .therapy-card__sub {
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em;
+    color: var(--brand-accent-dim); text-transform: uppercase; margin: -8px 0 0;
+  }
+  .therapy-card p { font-size: 15px; line-height: 1.55; margin: 0; }
+  .therapy-card__fit {
+    display: flex; flex-direction: column; gap: 6px;
+    padding: 14px 0 0; margin: 0;
+    border-top: 1px solid var(--rule-soft);
+    list-style: none;
+  }
+  .therapy-card__fit li {
+    font-family: var(--font-body); font-size: 14px; color: var(--ink-2);
+    padding-left: 18px; position: relative; line-height: 1.45;
+  }
+  .therapy-card__fit li::before {
+    content: ''; width: 8px; height: 2px; background: var(--brand-accent);
+    position: absolute; left: 0; top: 10px;
+  }
+  .therapy-card__fit .fit-label {
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 2px;
+    padding: 0;
+  }
+  .therapy-card__fit .fit-label::before { display: none; }
+  .therapy-card__cta {
+    margin-top: auto; padding-top: 12px;
+    border-top: 1px solid var(--rule-soft);
+    font-family: var(--font-display); font-weight: 600; font-size: 14.5px;
+    color: var(--brand-primary); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: gap var(--dur) var(--ease);
+  }
+  .therapy-card__cta:hover { gap: 10px; }
+
+  /* ── Candidacy strip ─────────────────────────────────────────────── */
+  .candidacy { background: var(--paper-2); }
+  .candidacy__grid {
+    max-width: var(--max); margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start;
+  }
+  .candidacy__col h3 {
+    font-family: var(--font-display); font-weight: 700; font-size: 20px;
+    letter-spacing: -0.01em; margin: 0 0 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .candidacy__col .pip {
+    width: 22px; height: 22px; border-radius: 999px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--font-mono); font-size: 13px; font-weight: 500;
+    flex: 0 0 auto;
+  }
+  .candidacy__col.is-yes .pip { background: var(--bb-teal-100); color: var(--bb-teal-700); border: 1px solid var(--bb-teal-200); }
+  .candidacy__col.is-no .pip  { background: #f5e9e6; color: #8a3a2a; border: 1px solid #e5d1cc; }
+  /* CTA variant — replaces the right-hand column on the candidacy grid */
+  .candidacy__cta {
+    background: var(--bb-navy-500);
+    color: rgba(255,255,255,0.92);
+    border-radius: var(--r-lg);
+    padding: 32px;
+    display: flex; flex-direction: column; gap: 14px;
+    box-shadow: 0 12px 32px rgba(7, 23, 42, 0.10);
+    position: relative; overflow: hidden;
+  }
+  .candidacy__cta::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 100% 0%, rgba(4,151,157,0.22) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .candidacy__cta > * { position: relative; }
+  .candidacy__cta .eyebrow { color: var(--bb-teal-300); margin: 0; }
+  .candidacy__cta h3 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 24px; line-height: 1.18; letter-spacing: -0.014em;
+    color: var(--white); margin: 0;
+    text-wrap: balance;
+  }
+  .candidacy__cta p {
+    color: rgba(255,255,255,0.78);
+    font-size: 15.5px; line-height: 1.55;
+    margin: 0; max-width: 44ch;
+  }
+  .candidacy__cta .actions {
+    display: flex; gap: 10px; flex-wrap: wrap;
+    margin-top: auto; padding-top: 12px;
+  }
+  .candidacy__cta .btn-primary { background: var(--bb-teal-500); box-shadow: none; }
+  .candidacy__cta .btn-primary:hover { background: var(--bb-teal-600); }
+  .candidacy__cta .btn-outline { color: var(--white); border-color: rgba(255,255,255,0.5); background: transparent; }
+  .candidacy__cta .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: var(--white); color: var(--white); }
+  .candidacy__col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .candidacy__col li {
+    font-family: var(--font-body); font-size: 15.5px; color: var(--ink-2);
+    line-height: 1.5; padding-left: 18px; position: relative;
+  }
+  .candidacy__col li::before {
+    content: ''; width: 8px; height: 2px; background: var(--ink);
+    position: absolute; left: 0; top: 11px;
+  }
+
+  /* ── Mid CTA ─────────────────────────────────────────────────────── */
+  .mid-cta { padding: 56px var(--gutter); border-block: 1px solid var(--rule); background: var(--white); }
+  .mid-cta__inner {
+    max-width: var(--max); margin: 0 auto;
+    display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center;
+  }
+  .mid-cta h2 { font-size: 28px; margin-bottom: 6px; }
+  .mid-cta .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  /* ── Related conditions ──────────────────────────────────────────── */
+  .related__head { max-width: var(--max); margin: 0 auto 24px; display: flex; align-items: baseline; justify-content: space-between; gap: 24px; }
+  .related__head h2 { margin: 0; }
+  .related__grid {
+    max-width: var(--max); margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+  }
+  .related-card {
+    background: var(--white); border: 1px solid var(--rule);
+    border-radius: var(--r-lg); padding: 20px;
+    display: flex; flex-direction: column; gap: 8px;
+    text-decoration: none; color: inherit;
+    transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  }
+  .related-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
+  .related-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 16px; letter-spacing: -0.005em; margin: 0; }
+  .related-card .meta { font-family: var(--font-mono); font-size: 10.5px; color: var(--muted); letter-spacing: 0.04em; }
+
+  /* ── Footer ──────────────────────────────────────────────────────── */
+  footer.site-footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 64px var(--gutter) 32px; }
+  .site-footer__cols { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 48px; }
+  .site-footer h4 { font-family: var(--font-display); font-weight: 600; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--white); margin: 0 0 14px; }
+  .site-footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+  .site-footer a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14.5px; }
+  .site-footer a:hover { color: var(--white); }
+  .site-footer__legal { max-width: var(--max); margin: 48px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.12); display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-size: 13px; color: rgba(255,255,255,0.5); }
+
+  /* ── 404 / unknown slug state ─────────────────────────────────────── */
+  .not-found { padding: 80px var(--gutter); text-align: center; max-width: 640px; margin: 0 auto; }
+  .not-found h1 { font-family: var(--font-display); font-weight: 700; font-size: 32px; letter-spacing: -0.018em; margin: 0 0 12px; }
+  .not-found p { color: var(--muted); margin: 0 0 24px; }
+
+  /* ── Responsive ───────────────────────────────────────────────────── */
+  @media (max-width: 960px) {
+    section { padding: 56px var(--gutter); }
+    .cond-hero__grid, .therapies__grid[data-count="3"], .therapies__grid[data-count="2"],
+    .candidacy__grid, .mid-cta__inner, .related__grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .site-header nav { display: none; }
+    .site-footer__cols { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+</style>
+</head>
+<body data-screen-label="V2 mid-fi · Condition (dynamic)">
+
+<div class="build-banner"><strong>V2 · mid-fi · condition template</strong><br />Dynamic. Reads <code style="font-family: inherit;">?c=&lt;slug&gt;</code> from URL and renders the matching condition. One page, six conditions.</div>
+
+<div class="announce">
+  <span>Boulder, Colorado</span>
+  <span class="sep"></span>
+  <span>Now accepting new patients</span>
+  <span class="sep"></span>
+  <span>Call <a href="tel:+17205506175">720-550-6175</a></span>
+</div>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="index.html" aria-label="Boulder Biologics home">
+      <img src="../assets/logo-stacked.png" alt="Boulder Biologics" />
+    </a>
+    <nav aria-label="Primary">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#conditions" aria-current="page">Conditions</a>
+      <a href="cellular-therapy.html" data-priority="low">Cellular Therapy</a>
+      <a href="prp.html" data-priority="low">PRP</a>
+      <a href="longevity.html">Longevity</a>
+      <a href="index.html#about">Our Team</a>
+      <a href="facilities.html">Facilities</a>
+      <a href="fda-guidelines.html">FDA Guidelines</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <div class="site-header__cta">
+      <a class="call-link" href="tel:+17205506175">720-550-6175</a>
+      <a class="call-link" href="contact.html">Contact</a>
+      <a class="btn btn-primary btn-sm" href="#schedule">Schedule consultation</a>
+    </div>
+  </div>
+</header>
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <a href="index.html">Home</a>
+  <span class="sep">›</span>
+  <a href="index.html#conditions">Conditions</a>
+  <span class="sep">›</span>
+  <span class="cur" data-bind="title">Condition</span>
+</nav>
+
+<main id="main">
+
+  <!-- ============== TEMPLATE (filled by JS) ============== -->
+  <div id="condition-view">
+
+    <section class="cond-hero">
+      <div class="cond-hero__grid">
+        <div>
+          <p class="eyebrow" data-bind="pillar">Condition overview</p>
+          <h1 class="h1" data-bind="title"></h1>
+          <p class="lede" data-bind="lede"></p>
+          <div class="cond-hero__diagnoses" aria-label="Common diagnoses" data-bind="diagnoses"></div>
+          <div class="cond-hero__cta">
+            <a class="btn btn-primary" href="#schedule">Schedule a consultation →</a>
+            <a class="btn btn-outline" href="#therapies">Skip to therapies</a>
+          </div>
+        </div>
+
+        <aside class="facts-card" aria-label="Quick facts">
+          <p class="facts-card__lbl">Quick facts</p>
+          <div class="facts-card__row">
+            <p class="facts-card__k">Typical patient</p>
+            <p class="facts-card__v" data-bind="fact-patient"></p>
+          </div>
+          <div class="facts-card__row">
+            <p class="facts-card__k">Therapies</p>
+            <p class="facts-card__v" data-bind="fact-therapies"></p>
+          </div>
+          <div class="facts-card__row">
+            <p class="facts-card__k">Visit</p>
+            <p class="facts-card__v" data-bind="fact-visit"></p>
+          </div>
+          <div class="facts-card__row">
+            <p class="facts-card__k">Follow-up</p>
+            <p class="facts-card__v" data-bind="fact-followup"></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="therapies" class="alt">
+      <div class="inner">
+        <div class="therapies__head">
+          <p class="eyebrow">Therapies for this condition</p>
+          <h2 class="h2" data-bind="therapies-heading"></h2>
+          <p class="lede" data-bind="therapies-lede"></p>
+        </div>
+        <div class="therapies__grid" data-bind="therapies-grid"></div>
+      </div>
+    </section>
+
+    <section class="candidacy" id="schedule">
+      <div class="inner">
+        <p class="eyebrow">Is this you?</p>
+        <h2 class="h2">Find out if biologic therapy is the right next step for you.</h2>
+        <p class="lede">A clear, condition-specific candidacy brief — so you can come to consultation already knowing where you stand and what to ask. If another path will serve you better, we'll point you to it.</p>
+        <div class="candidacy__grid">
+          <div class="candidacy__col is-yes">
+            <h3><span class="pip" aria-hidden="true">✓</span> Likely a good fit</h3>
+            <ul data-bind="candidacy-yes"></ul>
+          </div>
+          <aside class="candidacy__cta">
+            <p class="eyebrow">Schedule a consultation</p>
+            <h3 data-bind="cta-heading"></h3>
+            <p>A 45–60 minute consultation with Dr. Glowney sorts that out — history, imaging review, exam, and an honest recommendation. No pressure to proceed.</p>
+            <div class="actions">
+              <a class="btn btn-primary" href="#">Schedule a consultation →</a>
+              <a class="btn btn-outline" href="tel:+17205506175">Call 720-550-6175</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner">
+        <div class="related__head">
+          <h2 class="h2">Related conditions we treat</h2>
+          <a href="index.html#conditions" style="font-family: var(--font-display); font-weight: 600; font-size: 14px; color: var(--brand-primary); text-decoration: none;">All conditions →</a>
+        </div>
+        <div class="related__grid" data-bind="related"></div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ============== 404 STATE ============== -->
+  <div id="condition-404" hidden>
+    <section class="not-found">
+      <p class="eyebrow">Unknown condition</p>
+      <h1>We couldn't find that condition.</h1>
+      <p>This page expects a <code>?c=&lt;slug&gt;</code> param. Try one of the six conditions on the homepage.</p>
+      <a class="btn btn-primary" href="index.html#conditions">See all conditions →</a>
+    </section>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__cols">
+    <div>
+      <img src="../assets/logo-stacked.png" alt="Boulder Biologics" style="height: 44px; width: auto; margin-bottom: 16px;" />
+      <p style="color: rgba(255,255,255,0.6); font-size: 14px; max-width: 32ch; margin: 0;">Autologous orthobiologics in Boulder, Colorado. Patient-derived, physician-led, evidence-informed care.</p>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <ul>
+        <li><a href="cellular-therapy.html">Cellular Therapy</a></li>
+        <li><a href="prp.html">PRP</a></li>
+        <li><a href="prolotherapy.html">Prolotherapy</a></li>
+        <li><a href="epat.html">EPAT</a></li>
+        <li><a href="longevity.html">Longevity</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Clinic</h4>
+      <ul>
+        <li><a href="index.html#about">Our Team</a></li>
+        <li><a href="facilities.html">Facilities</a></li>
+        <li><a href="contact.html">Location &amp; Contact</a></li>
+        <li><a href="fda-guidelines.html">FDA Guidelines</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="index.html#conditions">Conditions</a></li>
+        <li><a href="#">Patient stories</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li>Boulder, Colorado</li>
+        <li><a href="tel:+17205506175">720-550-6175</a></li>
+        <li><a href="mailto:info@boulderbiologics.com">info@boulderbiologics.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__legal">
+    <span>© 2026 Boulder Biologics. All rights reserved.</span>
+    <span>Privacy · Terms · Accessibility</span>
+  </div>
+</footer>
+
+<script>
+/* ─────────────────────────────────────────────────────────────────────
+   Condition data — one entry per slug.
+   Adding a new condition = add an entry here. No new file.
+   ───────────────────────────────────────────────────────────────────── */
+
+const THERAPIES = {
+  bmac: {
+    name: "Bone marrow aspirate concentrate (BMAC)",
+    kind: "Cellular therapy",
+    sub: "MSC-containing · same-day · image-guided",
+    body: "A small volume of marrow is drawn from your iliac crest under local anesthesia, concentrated in our on-site lab, then delivered with ultrasound or fluoroscopic guidance to the target tissue.",
+    link: "cellular-therapy.html",
+  },
+  prp: {
+    name: "Platelet-rich plasma (PRP)",
+    kind: "Platelet-rich plasma",
+    sub: "Blood-derived · in-office · 60–90 min",
+    body: "Concentrated platelets and growth factors from your own blood, prepared in our lab and delivered into the target tissue under ultrasound guidance. The most-studied autologous biologic across orthopedic indications.",
+    link: "prp.html",
+  },
+  prpHa: {
+    name: "PRP + Hyaluronic acid",
+    kind: "Combination · knee-specific",
+    sub: "Single injection · biologic + viscosupplement",
+    body: "PRP combined with hyaluronic acid in a single intra-articular injection — pairing the signaling effect of platelets with the lubrication and load-distribution properties of HA. Purpose-built for the osteoarthritic knee.",
+    link: "prp-ha.html",
+  },
+  prolo: {
+    name: "Prolotherapy",
+    kind: "Ligament & joint stabilization",
+    sub: "Dextrose-based · stimulates ligament repair",
+    body: "A series of small injections of a dextrose solution into ligaments and entheses, intended to stimulate a local repair response and improve passive joint stability. Useful where laxity, not cartilage, is the dominant issue.",
+    link: "prolotherapy.html",
+  },
+  hydro: {
+    name: "Nerve hydrodissection",
+    kind: "Peripheral nerve · entrapment relief",
+    sub: "Ultrasound-guided · low-density PRP or D5W",
+    body: "Fluid is introduced under ultrasound guidance to separate a peripheral nerve from surrounding adhesions, decompressing entrapment and supporting the nerve's local environment. Often combined with PRP.",
+    link: "prp-hydrodissection.html",
+  },
+  epat: {
+    name: "EPAT (Pulse Activation)",
+    kind: "Non-invasive pulse therapy",
+    sub: "No needles · series of 3–6 sessions",
+    body: "Extracorporeal Pulse Activation Technology — non-invasive acoustic pulses delivered to tendons and entheses to stimulate microcirculation and repair signaling. Used alone or layered with PRP.",
+    link: "epat.html",
+  },
+  cell: {
+    name: "Cellular therapy for systemic conditions",
+    kind: "Medical applications",
+    sub: "Autologous MSC-containing protocols",
+    body: "Autologous bone-marrow-derived cellular therapy applied to systemic and neurological conditions under our medical-applications protocols. Decisions made case-by-case with full review of medical history and imaging.",
+    link: "cellular-therapy.html",
+  },
+  msc: {
+    name: "Mesenchymal stromal cell therapy",
+    kind: "Medical applications",
+    sub: "Autologous · IRB-eligible protocols",
+    body: "Autologous mesenchymal-stromal-cell–containing therapy investigated for post-viral inflammatory sequelae. Considered alongside our research-center trials when eligibility fits.",
+    link: "cellular-therapy.html",
+  },
+};
+
+const CONDITIONS = {
+  'knee': {
+    title: "Knee pain & arthritis",
+    pillar: "Condition overview · Orthopedics",
+    lede: "A short, plain-language brief on what we treat in the knee, the autologous biologic therapies that apply, and when one is — and isn't — the right path. For the full clinical depth on any therapy below, follow the link on its card.",
+    diagnoses: ["Knee osteoarthritis","Meniscus injury","Cartilage damage","Patellar tendinopathy","Post-surgical stiffness"],
+    facts: {
+      patient: "Active adult, <strong>40–70</strong>, with mild-to-moderate knee pain limiting hiking, skiing, running, or daily activity.",
+      therapies: "<strong>3</strong> autologous options — used alone or in combination depending on your imaging and stage.",
+      visit: "Same-day, single visit · <strong>image-guided</strong> · in-clinic · no hospital stay.",
+      followup: "Functional check-ins at <strong>6 and 12 weeks</strong>; reassess at 12–16 weeks if response hasn't emerged.",
+    },
+    therapiesHeading: "Three autologous options for the knee.",
+    therapiesLede: "Each one uses your own biologic material. The right choice depends on your imaging, stage of disease, prior treatments, and goals — Dr. Glowney walks through this with you in consultation.",
+    therapies: [
+      { id: "bmac", fit: ["Moderate knee OA with cartilage involvement","Failed PRP or wanting the most concentrated biologic","Subchondral bone marrow lesions on MRI"] },
+      { id: "prp",  fit: ["Early-to-moderate knee OA (Kellgren-Lawrence 2–3)","Patellar / quadriceps tendinopathy","Looking for the lowest-friction first biologic step"] },
+      { id: "prpHa", fit: ["Moderate knee OA with mechanical symptoms","Wanting symptom relief alongside biologic signaling","Have responded to either PRP or HA alone in the past"] },
+    ],
+    candidacy: {
+      yes: ["Mild-to-moderate knee OA on imaging (KL grade 2–3)","Symptoms have outlasted physical therapy and activity modification","You want to delay or avoid a knee replacement, if reasonable","You're generally healthy, mobile, and willing to follow a 12-week protocol"],
+      no:  ["End-stage / bone-on-bone arthritis (KL grade 4)","Severe malalignment or instability that needs structural correction","Active joint infection, uncontrolled systemic illness, or active cancer","Looking for an immediate, single-shot fix — biologic response takes time"],
+    },
+    ctaHeading: "Not sure which therapy fits your knee?",
+    related: ["hip-back-si","shoulder","tendon-ligament"],
+  },
+
+  'hip-back-si': {
+    title: "Hip, back & SI joint pain",
+    pillar: "Condition overview · Orthopedics",
+    lede: "Pain in the hip, low back, or sacroiliac joint often comes from a combination of joint, ligament, and nerve sources. The therapies below are chosen to address whichever is driving your symptoms — and we frequently combine them in one visit.",
+    diagnoses: ["Hip osteoarthritis","Sacroiliac dysfunction","Lumbar facet pain","Chronic low back pain","Greater trochanteric pain syndrome"],
+    facts: {
+      patient: "Adult, <strong>35–75</strong>, with mechanical hip / low-back / SI pain not improved by PT, NSAIDs, or activity modification.",
+      therapies: "<strong>3</strong> options chosen by pain source: joint, ligament, or peripheral nerve.",
+      visit: "Same-day, single visit · <strong>ultrasound and / or fluoroscopic</strong> guidance · in-clinic.",
+      followup: "Functional check-ins at <strong>6 and 12 weeks</strong>; second-pass injection considered at 12–16 weeks if partial response.",
+    },
+    therapiesHeading: "Three options, often combined in one visit.",
+    therapiesLede: "Most hip / back / SI patients benefit from more than one mechanism — a joint injection plus ligament support, or a joint injection plus nerve decompression. We sequence them in the same visit when appropriate.",
+    therapies: [
+      { id: "prp",   fit: ["Hip OA (mild-to-moderate) with mechanical pain","Facet joint pain on imaging or diagnostic block","Anchor therapy when combining with prolo or hydrodissection"] },
+      { id: "prolo", fit: ["SI joint instability or pelvic ligament laxity","Chronic low-back pain from posterior ligament strain","Recurrent symptoms after PT and manual therapy"] },
+      { id: "hydro", fit: ["Sciatic, femoral, or pudendal nerve entrapment","Radicular symptoms with imaging-confirmed compression","Burning / electric pain in a clear dermatome"] },
+    ],
+    candidacy: {
+      yes: ["Mechanical pain reproducible on exam or imaging","Pain has outlasted 6–12 weeks of conservative care","You can tolerate a short post-procedure restriction (1–2 weeks)","You're motivated to pair injections with a structured rehab plan"],
+      no:  ["Progressive neurologic deficit (weakness, foot drop, bowel/bladder)","Severe central canal stenosis needing surgical evaluation","Active infection, uncontrolled systemic illness, or active cancer","Expectation of immediate, complete pain relief from one injection"],
+    },
+    ctaHeading: "Not sure which combination fits your hip, back, or SI pain?",
+    related: ["knee","tendon-ligament","shoulder"],
+  },
+
+  'shoulder': {
+    title: "Shoulder & rotator cuff",
+    pillar: "Condition overview · Orthopedics",
+    lede: "Shoulder pain spans rotator-cuff tendinopathy and partial tears, labral injuries, frozen shoulder, and glenohumeral arthritis. The biologic strategy is tuned to which tissue is involved and how chronic the problem is.",
+    diagnoses: ["Rotator cuff tendinopathy","Partial-thickness cuff tears","Labral injuries","Frozen shoulder (adhesive capsulitis)","Glenohumeral arthritis"],
+    facts: {
+      patient: "Adult, <strong>30–75</strong>, with chronic shoulder pain limiting overhead activity, sleep, or sport.",
+      therapies: "<strong>3</strong> options — chosen by tissue (tendon vs. joint) and chronicity.",
+      visit: "Same-day, single visit · <strong>ultrasound-guided</strong> · in-clinic.",
+      followup: "Functional check-ins at <strong>6 and 12 weeks</strong>, often paired with a structured rehab program.",
+    },
+    therapiesHeading: "Three options for the shoulder.",
+    therapiesLede: "We choose between cellular therapy, PRP, and EPAT based on what's actually injured — a partial cuff tear, an arthritic joint, or a chronic tendinopathy each have a different best-fit biologic strategy.",
+    therapies: [
+      { id: "bmac", fit: ["Partial-thickness rotator cuff tears","Glenohumeral arthritis with cuff involvement","Failed prior PRP for cuff or joint"] },
+      { id: "prp",  fit: ["Rotator cuff tendinopathy (no full-thickness tear)","Mild-to-moderate glenohumeral arthritis","First-line biologic step before considering BMAC"] },
+      { id: "epat", fit: ["Chronic calcific tendinopathy","Adjunct before/after PRP for stubborn cuff pain","Patients preferring a non-injection option to start"] },
+    ],
+    candidacy: {
+      yes: ["Cuff pain or partial tear that has outlasted PT","Glenohumeral arthritis that hasn't yet reached replacement criteria","You're willing to follow a structured rehab plan for 12 weeks","You don't have a full-thickness retracted tear needing surgery"],
+      no:  ["Large, full-thickness, retracted rotator cuff tear","End-stage glenohumeral arthritis suitable for replacement","Active joint infection or uncontrolled inflammatory arthritis","Expectation that one injection eliminates a chronic tendinopathy overnight"],
+    },
+    ctaHeading: "Not sure which therapy fits your shoulder?",
+    related: ["knee","tendon-ligament","hip-back-si"],
+  },
+
+  'tendon-ligament': {
+    title: "Tendon & ligament injuries",
+    pillar: "Condition overview · Orthopedics",
+    lede: "Tendinopathies are notoriously stubborn. PRP, EPAT, and prolotherapy each work on a different part of the problem — and combining them is often more effective than escalating any one of them.",
+    diagnoses: ["Tennis & golfer's elbow","Achilles tendinopathy","Plantar fasciitis","Hamstring strain","Patellar tendinopathy"],
+    facts: {
+      patient: "Active adult, recreational or competitive athlete, with a tendinopathy that has outlasted 8–12 weeks of structured rehab.",
+      therapies: "<strong>3</strong> mechanism-different options frequently combined in a single course.",
+      visit: "Same-day, in-office · <strong>ultrasound-guided</strong> · no hospital stay.",
+      followup: "Functional check-ins at <strong>6 and 12 weeks</strong>, with EPAT typically delivered as a series of 3–6 sessions.",
+    },
+    therapiesHeading: "Three mechanisms, often combined.",
+    therapiesLede: "We layer PRP, EPAT, and prolotherapy more often than we use them in isolation — each addresses a different lever (signaling, mechanical stimulation, ligament repair) and the combination compounds.",
+    therapies: [
+      { id: "prp",   fit: ["Chronic tendinopathy that hasn't responded to PT","Partial-thickness intra-tendon defects","Anchor therapy when combining with EPAT or prolo"] },
+      { id: "epat",  fit: ["Plantar fasciitis, Achilles, lateral epicondyle","Patients who prefer a non-needle option to start","Adjunct before/after a PRP injection to amplify response"] },
+      { id: "prolo", fit: ["Chronic ligament laxity around a joint","Recurrent strains in the same tendon-bone junction","Patients with concurrent joint instability"] },
+    ],
+    candidacy: {
+      yes: ["Tendinopathy that has outlasted 8–12 weeks of dedicated rehab","Localizable, mechanical pain on exam","You can pause provocative loading for 1–2 weeks post-injection","You're willing to commit to a 12-week, rehab-plus-biologic protocol"],
+      no:  ["Full-thickness retracted tendon rupture needing surgery","Generalized chronic widespread pain (consider other diagnoses)","Active infection at the injection site","Hoping a single injection replaces rehab"],
+    },
+    ctaHeading: "Not sure which combination fits your tendon or ligament issue?",
+    related: ["knee","shoulder","hip-back-si"],
+  },
+
+  'concussion-tbi': {
+    title: "Concussion, TBI & CTE",
+    pillar: "Condition overview · Medical applications",
+    lede: "Post-concussion syndrome and the long-term sequelae of repetitive head trauma are handled by our medical-applications protocols and, where eligible, the affiliated Boulder Biologics Research Center. These are case-by-case decisions, not a checklist.",
+    diagnoses: ["Post-concussion syndrome","Repetitive head trauma / sub-concussive load","Cognitive recovery support","Suspected CTE (clinical syndrome)"],
+    facts: {
+      patient: "Adult with persistent post-concussion symptoms (cognitive, vestibular, mood) or a history of repetitive head trauma.",
+      therapies: "<strong>1</strong> medical-applications protocol; trial enrollment considered when eligible.",
+      visit: "Multi-visit workup · <strong>full medical history</strong>, imaging review, and case conference required.",
+      followup: "Structured longitudinal follow-up with neurocognitive measures and symptom tracking.",
+    },
+    therapiesHeading: "Cellular therapy under medical-applications protocols.",
+    therapiesLede: "Outside of orthopedics, every patient is evaluated individually. The honest answer up front is that evidence here is still maturing — we'll tell you where the data is strong, where it's preliminary, and where a research trial may be a better path than a clinical procedure.",
+    therapies: [
+      { id: "cell", fit: ["Persistent post-concussion symptoms past 6+ months","History of repetitive head trauma in sport or service","Looking for case-by-case evaluation rather than a packaged protocol","Open to enrolling in a research trial if eligible"] },
+    ],
+    candidacy: {
+      yes: ["You can produce records of injury history, imaging, and prior care","Symptoms are persistent, characterized, and longitudinally documented","You understand this is medical applications, not orthopedics","You're open to a multi-visit workup before any procedure"],
+      no:  ["Acute (≤4 weeks) concussion — standard concussion care first","Looking for a one-visit fix without a workup","Active substance use disorder that confounds symptom assessment","Expectation of guaranteed cognitive recovery"],
+    },
+    ctaHeading: "Want to discuss your case?",
+    related: ["long-covid","knee","tendon-ligament"],
+  },
+
+  'long-covid': {
+    title: "Long COVID & post-viral",
+    pillar: "Condition overview · Medical applications",
+    lede: "Persistent post-viral symptoms — fatigue, brain fog, exercise intolerance, and inflammatory sequelae — are evaluated under our medical-applications protocols, with eligibility considered for our research-center trials in autologous cellular therapy.",
+    diagnoses: ["Long COVID / PASC","Post-viral fatigue syndrome","Post-exertional malaise","Inflammatory sequelae of viral infection"],
+    facts: {
+      patient: "Adult with persistent post-viral symptoms ≥3 months after infection, not better explained by another cause.",
+      therapies: "<strong>1</strong> medical-applications protocol; research-trial enrollment considered when eligible.",
+      visit: "Multi-visit workup · <strong>longitudinal labs</strong> and symptom tracking before any procedure.",
+      followup: "Structured follow-up at 6 and 12 weeks with symptom-instrument re-measurement.",
+    },
+    therapiesHeading: "Mesenchymal stromal cell therapy under research-aligned protocols.",
+    therapiesLede: "We'll be candid: the evidence base for biologic therapy in long COVID is still emerging. We evaluate every patient individually, lay out what's known and unknown, and — when it's a better fit — refer you to a trial rather than a clinical procedure.",
+    therapies: [
+      { id: "msc", fit: ["Persistent post-viral symptoms ≥3 months","Negative workup for other treatable causes","Open to enrolling in a research trial if eligible","Comfortable with a multi-visit workup pace"] },
+    ],
+    candidacy: {
+      yes: ["Documented infection history and symptom timeline","Outside causes worked up and excluded","You understand this is investigational territory","Willing to engage in longitudinal follow-up and outcome tracking"],
+      no:  ["Symptoms <3 months from infection (give time and standard care first)","Looking for a packaged, guaranteed protocol","Active untreated condition that confounds assessment","Expectation that one procedure resolves a multi-system syndrome"],
+    },
+    ctaHeading: "Want to discuss your case?",
+    related: ["concussion-tbi","knee","shoulder"],
+  },
+};
+
+/* ─────────────────────────────────────────────────────────────────────
+   Rendering
+   ───────────────────────────────────────────────────────────────────── */
+
+function getSlug() {
+  const params = new URLSearchParams(window.location.search);
+  return (params.get('c') || 'knee').toLowerCase();
+}
+
+function setText(key, html) {
+  document.querySelectorAll('[data-bind="' + key + '"]').forEach(el => {
+    el.innerHTML = html;
+  });
+}
+
+function escapeHtml(s) {
+  return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function renderCondition(slug) {
+  const c = CONDITIONS[slug];
+  if (!c) {
+    document.getElementById('condition-view').hidden = true;
+    document.getElementById('condition-404').hidden = false;
+    document.title = 'V2 mid-fi · Condition not found · Boulder Biologics';
+    return;
+  }
+
+  // Title / pillar / lede
+  document.title = 'V2 mid-fi · ' + c.title + ' · Boulder Biologics';
+  document.body.setAttribute('data-screen-label', 'V2 mid-fi · Condition · ' + c.title);
+  setText('title', c.title);
+  setText('pillar', c.pillar);
+  setText('lede', c.lede);
+
+  // Diagnoses chips
+  const chipsHtml = c.diagnoses.map(d => '<span class="chip">' + escapeHtml(d) + '</span>').join('');
+  setText('diagnoses', chipsHtml);
+
+  // Quick facts
+  setText('fact-patient', c.facts.patient);
+  setText('fact-therapies', c.facts.therapies);
+  setText('fact-visit', c.facts.visit);
+  setText('fact-followup', c.facts.followup);
+
+  // Therapies section
+  setText('therapies-heading', c.therapiesHeading);
+  setText('therapies-lede', c.therapiesLede);
+  const grid = document.querySelector('[data-bind="therapies-grid"]');
+  grid.setAttribute('data-count', String(c.therapies.length));
+  grid.innerHTML = c.therapies.map((entry, i) => {
+    const t = THERAPIES[entry.id];
+    if (!t) return '';
+    const fitItems = ['<li class="fit-label">Best fit when</li>']
+      .concat(entry.fit.map(f => '<li>' + escapeHtml(f) + '</li>'))
+      .join('');
+    const num = String(i + 1).padStart(2, '0');
+    return (
+      '<article class="therapy-card">' +
+        '<p class="num">' + num + ' · ' + escapeHtml(t.kind) + '</p>' +
+        '<h3>' + escapeHtml(t.name) + '</h3>' +
+        '<p class="therapy-card__sub">' + escapeHtml(t.sub) + '</p>' +
+        '<p>' + escapeHtml(t.body) + '</p>' +
+        '<ul class="therapy-card__fit">' + fitItems + '</ul>' +
+        '<a class="therapy-card__cta" href="' + t.link + '">Read the full ' + escapeHtml(t.name.split('(')[0].trim()) + ' page →</a>' +
+      '</article>'
+    );
+  }).join('');
+
+  // Candidacy
+  const yesList = c.candidacy.yes.map(s => '<li>' + escapeHtml(s) + '</li>').join('');
+  const noList  = c.candidacy.no.map(s => '<li>' + escapeHtml(s) + '</li>').join('');
+  const yesNode = document.querySelector('[data-bind="candidacy-yes"]');
+  const noNode  = document.querySelector('[data-bind="candidacy-no"]');
+  if (yesNode) yesNode.innerHTML = yesList;
+  if (noNode)  noNode.innerHTML  = noList;
+
+  // CTA
+  setText('cta-heading', c.ctaHeading);
+
+  // Related (filter to known slugs, fall back to whatever is left)
+  const known = c.related.filter(slug => CONDITIONS[slug]);
+  document.querySelector('[data-bind="related"]').innerHTML = known.map(s => {
+    const r = CONDITIONS[s];
+    const therapyList = r.therapies.map(e => THERAPIES[e.id] && THERAPIES[e.id].name.split('(')[0].trim()).filter(Boolean).join(' · ');
+    return (
+      '<a class="related-card" href="?c=' + encodeURIComponent(s) + '">' +
+        '<span class="meta">' + escapeHtml(r.pillar.replace('Condition overview · ','')) + '</span>' +
+        '<h3>' + escapeHtml(r.title) + '</h3>' +
+        '<span class="meta" style="color: var(--brand-accent-dim);">' + escapeHtml(therapyList) + '</span>' +
+      '</a>'
+    );
+  }).join('');
+}
+
+renderCondition(getSlug());
+</script>
+
+</body>
+</html>

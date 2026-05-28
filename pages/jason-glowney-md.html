@@ -20,6 +20,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 
 <link rel="icon" type="image/png" href="../assets/logo-stacked.png" />
+<link rel="stylesheet" href="../assets/image-loader.css" />
 
 <script type="application/ld+json">
 {
@@ -85,7 +86,7 @@
 
   .bio-photo {
     background: var(--paper-2); border: 1px solid var(--rule);
-    border-radius: var(--r-lg); aspect-ratio: 4/5;
+    border-radius: var(--r-lg); aspect-ratio: 3/2;
     display: flex; align-items: center; justify-content: center;
     font-family: var(--font-mono); font-size: 10.5px; color: var(--muted);
     letter-spacing: 0.08em; text-align: center;
@@ -199,7 +200,7 @@
 
   @media (max-width: 880px) {
     .bio-hero__grid { grid-template-columns: 1fr; gap: 32px; }
-    .bio-photo { aspect-ratio: 16/9; max-width: 480px; }
+    .bio-photo { aspect-ratio: 3/2; max-width: 480px; }
     .cred-row { grid-template-columns: 1fr; gap: 4px; padding: 16px 18px; }
     .schedule-card { grid-template-columns: 1fr; padding: 28px; }
   }
@@ -259,8 +260,8 @@
           <a class="btn btn-outline" href="#writing">Read his writing</a>
         </div>
       </div>
-      <div class="bio-photo" role="img" aria-label="Dr. Glowney headshot — photo placeholder">
-        Headshot · placeholder<br /><br />4:5 portrait
+      <div class="bio-photo" data-img-id="jason-glowney-portrait" data-label="Dr. Glowney · portrait · 3:2" role="img" aria-label="Dr. Glowney headshot — photo placeholder">
+        Headshot · placeholder<br /><br />3:2 landscape
       </div>
     </div>
   </section>
@@ -493,5 +494,6 @@
   </div>
 </footer>
 
+<script defer src="../assets/image-loader.js"></script>
 </body>
 </html>

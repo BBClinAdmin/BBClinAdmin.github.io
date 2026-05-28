@@ -2,6 +2,24 @@
 
 A complete, production-ready static-HTML redesign of `boulderbiologics.com` — 22 pages, schema-rich, regulatory-aligned, ready to deploy. This document is self-sufficient: a developer who wasn't in the design conversation can implement and deploy from this README alone.
 
+## What's in this bundle
+
+- **23 HTML pages** under `pages/` — 22 production pages plus one dynamic `condition.html` template (six conditions rendered from one file via `?c=<slug>`).
+- **Brand assets** under `assets/` — logo, image-loader (CSS+JS), and the full clinical image library (`assets/images/`, ~27 files).
+- **Design tokens** in `colors_and_type.css` at the bundle root.
+- **Root-level `index.html`** that redirects to `pages/index.html` so the site root "just works" on GitHub Pages or any static host.
+- **`.nojekyll`** at the root so GitHub Pages serves the underscore-prefixed CSS files (`_shared.css`, `_v2-service.css`, `_learn-explainer.css`) instead of Jekyll silently dropping them.
+
+### Quick-test on GitHub Pages
+
+1. Push the contents of this folder to a repo (or to a `gh-pages` branch / `docs/` folder).
+2. In repo Settings → Pages, point Pages at that branch + path.
+3. Visit the published URL. The root `index.html` redirects to `pages/index.html`.
+4. Click any condition card on the homepage — it loads `pages/condition.html?c=<slug>` and renders the matching condition. **This was the page that 404'd in the previous handoff; it's included now.**
+5. Images load via `assets/image-loader.js` from `assets/images/` (real clinical photography is already in the bundle).
+
+If you see 404s on `_shared.css` / `_v2-service.css` / `_learn-explainer.css`, confirm `.nojekyll` made it to the repo — GH Pages strips underscore-prefixed files without it.
+
 ## Overview
 
 Boulder Biologics is a physician-led clinic in Boulder, Colorado offering autologous orthobiologic therapy, PRP, regenerative medicine, and longevity care. The redesign delivers:
@@ -76,6 +94,11 @@ Plain, clinical, slightly understated. Confident but not boastful. Short declara
 ## Page inventory
 
 22 production HTML pages. URLs are the canonical slugs the site deploys at.
+
+### Conditions (dynamic template)
+| File | URL | Purpose |
+|---|---|---|
+| `condition.html` | `/condition?c=<slug>` | Single dynamic template that renders six condition overviews (`knee`, `hip-back-si`, `shoulder`, `tendon-ligament`, `concussion-tbi`, `long-covid`) from a `CONDITIONS` JS object embedded in the file. Adding a condition = add an entry to that object; no new file. The six homepage condition cards (`#conditions` section on `index.html`) link to this template with the appropriate `?c=` query param. Falls back to a friendly 404 state if the slug is missing or unknown. **Previously missing — now included.**
 
 ### Hub pages
 | File | URL | Purpose |
@@ -255,9 +278,14 @@ design_handoff_boulder_biologics_site/
 ├── README.md                           ← this file
 ├── PROJECT_GUIDELINES.md               ← voice + regulatory rules (originally CLAUDE.md)
 ├── REDIRECTS.md                        ← 301 plan + deploy checklist
+├── .nojekyll                           ← tells GitHub Pages to serve _shared.css etc. as-is
+├── index.html                          ← root redirect → pages/index.html (for GH Pages testing)
 ├── colors_and_type.css                 ← design tokens
 ├── assets/
-│   └── logo-stacked.png                ← master stacked logotype
+│   ├── logo-stacked.png                ← master stacked logotype
+│   ├── image-loader.css                ← styles for img-slot placeholder treatment
+│   ├── image-loader.js                 ← auto-loads images by data-img-id
+│   └── images/                         ← clinical photography (hero shots, lab, MRI, microscopy, headshots)
 ├── screenshots/                        ← reference captures (7 key pages)
 │   ├── README.md                       ← what each screenshot shows
 │   ├── 01-homepage.png
@@ -289,6 +317,7 @@ design_handoff_boulder_biologics_site/
     ├── prp-hydrodissection.html
     ├── prolotherapy.html
     ├── epat.html
+    ├── condition.html                  ← dynamic conditions template (?c=knee, hip-back-si, shoulder, tendon-ligament, concussion-tbi, long-covid)
     ├── is-stem-cell-therapy-fda-approved.html
     ├── autologous-vs-donor-derived-stem-cells.html
     ├── mesenchymal-stromal-vs-stem-cells.html

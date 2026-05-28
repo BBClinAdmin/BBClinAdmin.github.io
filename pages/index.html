@@ -54,6 +54,7 @@
 }
 </script>
 <link rel="icon" type="image/png" href="../assets/logo-stacked.png" />
+<link rel="stylesheet" href="../assets/image-loader.css" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -233,13 +234,11 @@
 
   .site-header {
     position: sticky; top: 0; z-index: 50;
-    background: var(--dark);
-    color: rgba(255,255,255,0.86);
-    -webkit-backdrop-filter: saturate(140%);
-            backdrop-filter: saturate(140%);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    background: var(--paper-2);
+    color: var(--ink-2);
+    border-bottom: 1px solid var(--rule);
   }
-  .site-header__logo img { filter: brightness(0) invert(1); }
+  .site-header__logo img { filter: none; }
   .site-header__inner {
     max-width: var(--max); margin: 0 auto;
     padding: 14px var(--gutter);
@@ -251,44 +250,55 @@
     display: inline-flex; align-items: center;
     text-decoration: none;
   }
-  .site-header__logo img { height: 44px; width: auto; display: block; }
+  .site-header__logo img { height: 42px; width: auto; display: block; }
   @media (max-width: 1180px) {
     .site-header__logo img { height: 38px; }
   }
   .site-header nav {
-    display: flex; gap: 0;
+    display: flex; gap: 1px;
     flex: 1 1 auto; min-width: 0;
     justify-content: center;
     flex-wrap: nowrap;
   }
   .site-header nav a {
-    font-family: var(--font-display); font-weight: 600; font-size: 13px;
-    color: rgba(255,255,255,0.86); padding: 8px 8px; border-radius: 6px;
+    font-family: var(--font-display); font-weight: 600; font-size: 13.5px;
+    color: var(--ink-2); padding: 9px 10px; border-radius: 6px;
     text-decoration: none; white-space: nowrap;
   }
-  .site-header nav a:hover { background: rgba(255,255,255,0.08); color: var(--white); }
-  .site-header nav a[aria-current="page"] { color: var(--bb-teal-300); }
-  .site-header__cta .call-link { color: rgba(255,255,255,0.78); }
-  .site-header__cta .call-link:hover { color: var(--bb-teal-200); }
+  .site-header nav a:hover { background: rgba(7, 23, 42, 0.06); color: var(--ink); }
+  .site-header nav a[aria-current="page"] { color: var(--brand-accent-dim); }
+  .site-header__cta .call-link { color: var(--muted); }
+  .site-header__cta .call-link:hover { color: var(--brand-accent-dim); }
   .site-header__cta .btn-primary {
     background: var(--brand-accent); color: var(--white); box-shadow: none;
   }
   .site-header__cta .btn-primary:hover { background: var(--brand-accent-hover); }
   .site-header__cta { display: flex; align-items: center; gap: 14px; flex: 0 0 auto; }
   .call-link {
-    font-family: var(--font-body); font-size: 13px; color: var(--muted);
+    font-family: var(--font-display); font-size: 13.5px; color: var(--brand-primary);
     display: inline-flex; align-items: center; gap: 6px;
-    text-decoration: none; font-weight: 600; white-space: nowrap;
+    text-decoration: none; font-weight: 700; white-space: nowrap;
   }
+  .call-link:hover { color: var(--brand-accent-dim); }
 
-  /* Intermediate width — tighten nav and progressively drop secondary items
-     before the full mobile breakpoint hides nav entirely */
+  /* Responsive — match _v2-service.css behavior */
   @media (max-width: 1180px) {
-    .site-header nav a { padding: 7px 6px; font-size: 12.5px; }
     .site-header .call-link[href^="tel:"] { display: none; }
   }
-  @media (max-width: 1280px) {
-    .site-header nav a[data-priority="low"] { display: none; }
+  @media (max-width: 1024px) {
+    .site-header__inner { flex-wrap: wrap; row-gap: 8px; }
+    .site-header nav {
+      order: 3;
+      flex: 1 1 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding-top: 8px;
+      border-top: 1px solid var(--rule);
+      gap: 2px;
+    }
+  }
+  @media (max-width: 560px) {
+    .site-header nav a { padding: 7px 8px; font-size: 13px; }
   }
 
   /* ── Section scaffolding ──────────────────────────────────────────── */
@@ -446,8 +456,19 @@
     transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
   }
   .team-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
+  .team-card__header {
+    display: flex; gap: 24px; align-items: flex-start;
+    padding: 28px 28px 0;
+  }
+  .team-card__intro { flex: 1; min-width: 0; }
+  .team-card__intro h3 { margin-top: 6px; }
+  .team-card__intro .team-card__chips { margin: 14px 0 0; }
   .team-card__photo {
-    aspect-ratio: 5 / 4;
+    flex: 0 0 180px;
+    width: 180px;
+    aspect-ratio: 4 / 5;
+    border-radius: 6px;
+    overflow: hidden;
     background: repeating-linear-gradient(135deg, rgba(0,0,0,0.06) 0 1px, transparent 1px 12px), var(--paper-2);
     border-bottom: 1px solid var(--rule);
     position: relative; display: flex; align-items: flex-end; padding: 16px;
@@ -457,7 +478,7 @@
     font-family: var(--font-mono); font-size: 11px; color: var(--muted);
     background: rgba(255,255,255,0.88); padding: 4px 8px; border-radius: 4px;
   }
-  .team-card__body { padding: 28px 28px 32px; display: flex; flex-direction: column; flex: 1; }
+  .team-card__body { padding: 22px 28px 32px; display: flex; flex-direction: column; flex: 1; }
   .team-card__role { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
   .team-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 26px; letter-spacing: -0.018em; line-height: 1.1; margin: 0 0 14px; }
   .team-card__chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 18px; }
@@ -548,10 +569,23 @@
   }
   .accordion .a strong { color: var(--ink); }
 
+  /* Header variant used above the Straight-Answer accordion: top-aligned
+     so the lede sits at the same baseline as the eyebrow, plus a divider
+     that separates the head from the expandable items below. */
+  .faq__head.faq__head--ruled {
+    align-items: start;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 40px;
+  }
+  .faq__head.faq__head--ruled .lede { padding-top: 6px; max-width: 46ch; }
+
   /* ── Before / After ───────────────────────────────────────────────── */
   .ba__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 36px 0 20px; }
   .ba__plate {
-    aspect-ratio: 4 / 3; border-radius: var(--r-lg);
+    aspect-ratio: 7 / 8; border-radius: var(--r-lg);
     background: repeating-linear-gradient(135deg, rgba(0,0,0,0.1) 0 1px, transparent 1px 7px), #e6e3da;
     border: 1px solid var(--rule); position: relative;
     display: flex; align-items: flex-start; padding: 16px;
@@ -596,13 +630,13 @@
   .final-cta .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
 
   /* ── Footer ───────────────────────────────────────────────────────── */
-  footer.site-footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 64px var(--gutter) 32px; }
+  footer.site-footer { background: var(--paper-2); color: var(--ink-2); padding: 64px var(--gutter) 32px; border-top: 1px solid var(--rule); }
   .site-footer__cols { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 48px; }
-  .site-footer h4 { font-family: var(--font-display); font-weight: 600; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--white); margin: 0 0 14px; }
+  .site-footer h4 { font-family: var(--font-display); font-weight: 600; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); margin: 0 0 14px; }
   .site-footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
-  .site-footer a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14.5px; }
-  .site-footer a:hover { color: var(--white); }
-  .site-footer__legal { max-width: var(--max); margin: 48px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.12); display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-size: 13px; color: rgba(255,255,255,0.5); }
+  .site-footer a { color: var(--ink-2); text-decoration: none; font-size: 14.5px; }
+  .site-footer a:hover { color: var(--brand-accent-dim); }
+  .site-footer__legal { max-width: var(--max); margin: 48px auto 0; padding-top: 24px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
 
   /* ── Responsive ───────────────────────────────────────────────────── */
   /* ── Reviews band ─────────────────────────────────────────────────── */
@@ -912,7 +946,6 @@
     .approach-card { padding: 32px; min-height: 0; }
     .featured__grid.flip > :first-child { order: 0; }
     .pillars__grid { gap: 14px; }
-    .site-header nav { display: none; }
     .site-footer__cols { grid-template-columns: 1fr 1fr; gap: 32px; }
     .final-cta__panel { padding: 40px; }
   }
@@ -1107,7 +1140,7 @@
       <p class="lede">Most patients arrive with a specific issue. Pick the closest match — we'll show you the therapies most relevant to your situation.</p>
       <div class="conditions__grid">
 
-        <a class="condition-card" href="wireframes/V2 Condition Overview.html?c=knee">
+        <a class="condition-card" href="condition.html?c=knee">
           <div class="condition-card__ic">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"></circle><path d="M12 8v6m-3 7 3-7 3 7"></path></svg>
           </div>
@@ -1116,7 +1149,7 @@
           <div class="condition-card__therapies">Bone marrow therapy · PRP · Hyaluronic acid <span>→</span></div>
         </a>
 
-        <a class="condition-card" href="wireframes/V2 Condition Overview.html?c=hip-back-si">
+        <a class="condition-card" href="condition.html?c=hip-back-si">
           <div class="condition-card__ic">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4v16M16 4v16M8 8h8M8 16h8"></path></svg>
           </div>
@@ -1125,7 +1158,7 @@
           <div class="condition-card__therapies">PRP · Prolotherapy · Hydrodissection <span>→</span></div>
         </a>
 
-        <a class="condition-card" href="wireframes/V2 Condition Overview.html?c=shoulder">
+        <a class="condition-card" href="condition.html?c=shoulder">
           <div class="condition-card__ic">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"></circle><path d="M5 21v-2a7 7 0 0 1 14 0v2"></path></svg>
           </div>
@@ -1134,7 +1167,7 @@
           <div class="condition-card__therapies">Bone marrow therapy · PRP · EPAT <span>→</span></div>
         </a>
 
-        <a class="condition-card" href="wireframes/V2 Condition Overview.html?c=tendon-ligament">
+        <a class="condition-card" href="condition.html?c=tendon-ligament">
           <div class="condition-card__ic">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l3-9 6 18 3-9h4"></path></svg>
           </div>
@@ -1143,7 +1176,7 @@
           <div class="condition-card__therapies">PRP · EPAT · Prolotherapy <span>→</span></div>
         </a>
 
-        <a class="condition-card" href="wireframes/V2 Condition Overview.html?c=concussion-tbi">
+        <a class="condition-card" href="condition.html?c=concussion-tbi">
           <div class="condition-card__ic">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2a3 3 0 0 0-2.83 4A3 3 0 0 0 5 11a3 3 0 0 0 2 5 3 3 0 0 0 2.5 4.5"></path><path d="M14.5 2a3 3 0 0 1 2.83 4A3 3 0 0 1 19 11a3 3 0 0 1-2 5 3 3 0 0 1-2.5 4.5"></path></svg>
           </div>
@@ -1152,7 +1185,7 @@
           <div class="condition-card__therapies">Cellular therapy · Medical applications <span>→</span></div>
         </a>
 
-        <a class="condition-card" href="wireframes/V2 Condition Overview.html?c=long-covid">
+        <a class="condition-card" href="condition.html?c=long-covid">
           <div class="condition-card__ic">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12c3-7 15-7 18 0M3 12c3 7 15 7 18 0"></path></svg>
           </div>
@@ -1177,16 +1210,20 @@
 
         <!-- Card 1 · Dr. Glowney -->
         <article class="team-card">
-          <div class="team-card__photo" data-label="Dr. Glowney · headshot"></div>
-          <div class="team-card__body">
-            <p class="team-card__role">Founder · Triple Board-Certified Physician</p>
-            <h3>Jason Glowney, MD, MSc, CAQSM</h3>
-            <div class="team-card__chips">
-              <span class="chip">Internal Medicine</span>
-              <span class="chip">Emergency Medicine</span>
-              <span class="chip">Sports Medicine</span>
-              <span class="chip">Research PI</span>
+          <div class="team-card__header">
+            <div class="team-card__photo" data-img-id="index-team-glowney" data-label="Dr. Glowney · headshot"></div>
+            <div class="team-card__intro">
+              <p class="team-card__role">Founder · Triple Board-Certified Physician</p>
+              <h3>Jason Glowney, MD, MSc, CAQSM</h3>
+              <div class="team-card__chips">
+                <span class="chip">Internal Medicine</span>
+                <span class="chip">Emergency Medicine</span>
+                <span class="chip">Sports Medicine</span>
+                <span class="chip">Research PI</span>
+              </div>
             </div>
+          </div>
+          <div class="team-card__body">
             <p>Dr. Glowney moved to Colorado in 2009 for a Sports Medicine fellowship at the University of Colorado and has practiced biologic orthopedics in Boulder ever since. He is uniquely qualified in the field of orthobiologics, with extensive training in Internal Medicine (hematology and rheumatology), Emergency Medicine (orthopedic trauma), interventional orthopedics, and over ten years of post-fellowship experience.</p>
             <p>Alongside medicine, he founded the <strong>Apeiron / Boulder Biologics Research Center</strong>, the clinic's affiliated non-profit running clinical-trials research on cellular therapy.</p>
             <div class="team-card__creds">
@@ -1206,15 +1243,19 @@
 
         <!-- Card 2 · Ryan Shiling, NP -->
         <article class="team-card is-joining">
-          <div class="team-card__photo" data-label="Ryan Shiling, NP · headshot · placeholder"></div>
-          <div class="team-card__body">
-            <p class="team-card__role">Co-Founder · Clinical Staff</p>
-            <h3>Ryan Shiling, RN</h3>
-            <div class="team-card__chips">
-              <span class="chip">RN</span>
-              <span class="chip">NP (Exp. 2026)</span>
-              <span class="chip">Orthopedic care</span>
+          <div class="team-card__header">
+            <div class="team-card__photo" data-img-id="index-team-shiling" data-label="Ryan Shiling, NP · headshot"></div>
+            <div class="team-card__intro">
+              <p class="team-card__role">Co-Founder · Clinical Staff</p>
+              <h3>Ryan Shiling, RN</h3>
+              <div class="team-card__chips">
+                <span class="chip">RN</span>
+                <span class="chip">NP (Exp. 2026)</span>
+                <span class="chip">Orthopedic care</span>
+              </div>
             </div>
+          </div>
+          <div class="team-card__body">
             <p>Ryan's clinical path runs the full length of acute and primary care — from EMT, to Medical Assistant, to Registered Nurse, and now into Nurse Practitioner training (expected 2026). He co-founded Boulder Biologics with Dr. Glowney in 2019 and works across patient evaluations, pre-procedure consultations, and follow-up care.</p>
             <p>An avid cyclist himself, Ryan understands athletes — how injuries actually disrupt training, what realistic return-to-sport looks like, and where biologic therapies fit in a competitive timeline.</p>
             <div class="team-card__creds">
@@ -1279,7 +1320,7 @@
   <section id="bmac">
     <div class="inner">
       <div class="featured__grid">
-        <div class="featured__media" data-label="lab · density-gradient centrifugation"></div>
+        <div class="featured__media" data-img-id="index-featured-msc" data-label="Lab · density-gradient centrifugation"></div>
         <div>
           <p class="eyebrow">Featured therapy</p>
           <h2 class="h2">Bone Marrow Aspirate Concentrate, explained.</h2>
@@ -1340,7 +1381,7 @@
   <!-- ============== STRAIGHT ANSWER · stem cells ============== -->
   <section>
     <div class="inner">
-      <div class="faq__head">
+      <div class="faq__head faq__head--ruled">
         <div>
           <p class="eyebrow">A straight answer</p>
           <h2 class="h2">"Wait — is this stem cell therapy?"</h2>
@@ -1374,7 +1415,7 @@
   <section id="prp" class="alt">
     <div class="inner">
       <div class="featured__grid flip">
-        <div class="featured__media" data-label="centrifuge · platelet fraction"></div>
+        <div class="featured__media" data-img-id="index-featured-prp" data-label="Centrifuge · platelet fraction"></div>
         <div>
           <p class="eyebrow">Also featured</p>
           <h2 class="h2">Platelet-Rich Plasma, explained.</h2>
@@ -1398,8 +1439,8 @@
       <h2 class="h2">Cartilage signal recovery, bone-marrow edema improvement.</h2>
       <p class="lede">Imaging from one of our patients before and after a course of PRP therapy at our Boulder clinic.</p>
       <div class="ba__grid">
-        <div class="ba__plate" data-label="MRI · before"></div>
-        <div class="ba__plate" data-label="MRI · after · 12 weeks"></div>
+        <div class="ba__plate" data-img-id="index-ba-before" data-label="MRI · before"></div>
+        <div class="ba__plate" data-img-id="index-ba-after" data-label="MRI · after · 12 weeks"></div>
       </div>
       <p class="ba__caption">This is an example of a patient's results from PRP therapy at Boulder Biologics. We caution that these results are the exception and would not be expected in more advanced or diffuse arthritis. Outcomes depend on patient selection, joint stage, and biological response.</p>
     </div>
@@ -1422,7 +1463,7 @@
   <!-- ============== FAQ + COST ============== -->
   <section id="faq">
     <div class="inner">
-      <div class="faq__head">
+      <div class="faq__head faq__head--ruled">
         <div>
           <p class="eyebrow">Frequently asked</p>
           <h2 class="h2">Questions patients ask us most.</h2>
@@ -1528,11 +1569,11 @@
 <footer class="site-footer">
   <div class="site-footer__cols">
     <div>
-      <img src="../assets/logo-stacked.png" alt="Boulder Biologics" style="height: 56px; width: auto; filter: brightness(0) invert(1); margin-bottom: 14px;" />
-      <p style="color: rgba(255,255,255,0.6); font-size: 14px; max-width: 32ch; margin: 0 0 18px;">Research-rooted autologous orthobiologic therapies. Boulder, Colorado.</p>
+      <img src="../assets/logo-stacked.png" alt="Boulder Biologics" style="height: 56px; width: auto; margin-bottom: 14px;" />
+      <p style="color: var(--muted); font-size: 14px; max-width: 32ch; margin: 0 0 18px;">Research-rooted autologous orthobiologic therapies. Boulder, Colorado.</p>
       <div style="display: flex; gap: 10px;">
-        <a href="https://www.facebook.com/boulderbiologics" target="_blank" rel="noopener" aria-label="Facebook" style="width:36px; height:36px; border-radius:999px; border:1px solid rgba(255,255,255,0.16); display:inline-flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.7);"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.89 3.77-3.89 1.09 0 2.24.19 2.24.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34v7.03A10 10 0 0 0 22 12.06Z"/></svg></a>
-        <a href="https://instagram.com/boulderbiologics" target="_blank" rel="noopener" aria-label="Instagram" style="width:36px; height:36px; border-radius:999px; border:1px solid rgba(255,255,255,0.16); display:inline-flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.7);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor"></circle></svg></a>
+        <a href="https://www.facebook.com/boulderbiologics" target="_blank" rel="noopener" aria-label="Facebook" style="width:36px; height:36px; border-radius:999px; border:1px solid var(--rule); display:inline-flex; align-items:center; justify-content:center; color:var(--ink-2);"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.89 3.77-3.89 1.09 0 2.24.19 2.24.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34v7.03A10 10 0 0 0 22 12.06Z"/></svg></a>
+        <a href="https://instagram.com/boulderbiologics" target="_blank" rel="noopener" aria-label="Instagram" style="width:36px; height:36px; border-radius:999px; border:1px solid var(--rule); display:inline-flex; align-items:center; justify-content:center; color:var(--ink-2);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor"></circle></svg></a>
       </div>
     </div>
     <div>
@@ -1579,5 +1620,6 @@
   </div>
 </footer>
 
+<script defer src="../assets/image-loader.js"></script>
 </body>
 </html>

@@ -20,6 +20,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 
 <link rel="icon" type="image/png" href="../assets/logo-stacked.png" />
+<link rel="stylesheet" href="../assets/image-loader.css" />
 
 <script type="application/ld+json">
 {
@@ -79,7 +80,7 @@
   .svc-hero .chips-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 22px 0 28px; }
   .svc-hero .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
   .svc-hero__media { margin: 56px auto 0; max-width: var(--max); }
-  .svc-hero__media .img-slot { aspect-ratio: 21/9; }
+  .svc-hero__media .img-slot { aspect-ratio: 16/9; }
 
   .mech__visual { background: var(--paper-2); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: 24px; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; }
   .mech__caption { font-family: var(--font-body); font-size: 12.5px; color: var(--muted); font-style: italic; margin-top: 12px; line-height: 1.5; }
@@ -164,7 +165,7 @@
       </aside>
     </div>
     <div class="svc-hero__media">
-      <div class="img-slot" data-label="Hero photo · Dr. Glowney delivering image-guided injection · 21:9"></div>
+      <div class="img-slot" data-img-id="cellular-therapy-hero" data-label="Hero · Dr. Glowney delivering image-guided injection · 16:9"></div>
     </div>
   </section>
 
@@ -351,7 +352,7 @@
           <p style="font-family: var(--font-mono); font-size: 10.5px; color: var(--muted); margin-top: 12px; letter-spacing: 0.04em;">* When clinically indicated</p>
         </div>
         <div>
-          <div class="micro" role="img" aria-label="Phase-contrast microscopy"></div>
+          <div class="micro" data-img-id="cellular-therapy-microscopy" data-label="MSC culture · phase-contrast · 4:3" role="img" aria-label="Phase-contrast microscopy"></div>
           <p style="font-family: var(--font-body); font-size: 13.5px; color: var(--muted); margin: 14px 0 0; line-height: 1.5; font-style: italic;">
             <strong style="color: var(--ink); font-weight: 600;">MSC culture · phase-contrast.</strong> Adherent, fibroblast-like stromal cells from autologous bone marrow aspirate during short-term culture. Plastic adherence and spindle-shaped morphology are defining MSC phenotypic properties — shown for research and QA documentation, not representative of same-day ex-vivo products used clinically.
           </p>
@@ -562,5 +563,6 @@
   </div>
 </footer>
 
+<script defer src="../assets/image-loader.js"></script>
 </body>
 </html>

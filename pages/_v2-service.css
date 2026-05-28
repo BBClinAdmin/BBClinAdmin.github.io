@@ -186,11 +186,9 @@ p { margin: 0 0 14px; color: var(--ink-2); }
 
 .site-header {
   position: sticky; top: 0; z-index: 50;
-  background: var(--dark);
-  color: rgba(255,255,255,0.86);
-  -webkit-backdrop-filter: saturate(140%);
-          backdrop-filter: saturate(140%);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: var(--paper-2);
+  color: var(--ink-2);
+  border-bottom: 1px solid var(--rule);
 }
 .site-header__inner {
   max-width: var(--max); margin: 0 auto;
@@ -198,18 +196,18 @@ p { margin: 0 0 14px; color: var(--ink-2); }
   display: flex; align-items: center; justify-content: space-between;
   gap: 24px;
 }
-.site-header__logo img { height: 42px; width: auto; display: block; filter: brightness(0) invert(1); }
+.site-header__logo img { height: 42px; width: auto; display: block; }
 .site-header nav { display: flex; gap: 1px; flex: 1 1 auto; min-width: 0; justify-content: center; flex-wrap: nowrap; }
 .site-header nav a {
   font-family: var(--font-display); font-weight: 600; font-size: 13.5px;
-  color: rgba(255,255,255,0.86); padding: 9px 10px; border-radius: 6px;
+  color: var(--ink-2); padding: 9px 10px; border-radius: 6px;
   text-decoration: none; white-space: nowrap;
 }
-.site-header nav a:hover { background: rgba(255,255,255,0.08); color: var(--white); }
-.site-header nav a[aria-current="page"] { color: var(--bb-teal-300); }
+.site-header nav a:hover { background: rgba(7, 23, 42, 0.06); color: var(--ink); }
+.site-header nav a[aria-current="page"] { color: var(--brand-accent-dim); }
 .site-header__cta { display: flex; align-items: center; gap: 14px; flex: 0 0 auto; }
-.site-header__cta .call-link { color: rgba(255,255,255,0.78); }
-.site-header__cta .call-link:hover { color: var(--bb-teal-200); }
+.site-header__cta .call-link { color: var(--muted); }
+.site-header__cta .call-link:hover { color: var(--brand-accent-dim); }
 .site-header__cta .btn-primary {
   background: var(--brand-accent); color: var(--white); box-shadow: none;
 }
@@ -492,23 +490,23 @@ section.tight { padding: 56px var(--gutter); }
 .cta-form .micro { all: unset; display: block; font-family: var(--font-body); font-size: 11.5px; color: rgba(255,255,255,0.5); margin-top: 4px; aspect-ratio: auto; background: none; border: 0; padding: 0; }
 
 /* ── Footer ──────────────────────────────────────────────────────── */
-footer.site-footer { background: var(--dark-deep); color: rgba(255,255,255,0.65); padding: 64px var(--gutter) 32px; }
+footer.site-footer { background: var(--paper-2); color: var(--ink-2); padding: 64px var(--gutter) 32px; border-top: 1px solid var(--rule); }
 .site-footer__cols { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 48px; }
-.site-footer h4 { font-family: var(--font-display); font-weight: 600; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--white); margin: 0 0 14px; }
+.site-footer h4 { font-family: var(--font-display); font-weight: 600; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); margin: 0 0 14px; }
 .site-footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
-.site-footer a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px; }
-.site-footer a:hover { color: var(--white); }
-.site-footer__legal { max-width: var(--max); margin: 48px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.12); display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-size: 12.5px; color: rgba(255,255,255,0.45); }
-.site-footer__tag { color: rgba(255,255,255,0.55); font-size: 14px; max-width: 32ch; margin: 14px 0 0; }
+.site-footer a { color: var(--ink-2); text-decoration: none; font-size: 14px; }
+.site-footer a:hover { color: var(--brand-accent-dim); }
+.site-footer__legal { max-width: var(--max); margin: 48px auto 0; padding-top: 24px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-size: 12.5px; color: var(--muted); }
+.site-footer__tag { color: var(--muted); font-size: 14px; max-width: 32ch; margin: 14px 0 0; }
 .site-footer img { height: 42px; width: auto; }
 
 /* ---------- Standing regulatory disclaimer (cellular-therapy-adjacent pages) ---------- */
-.footer-disclaimer { max-width: var(--max); margin: 0 auto 24px; padding: 22px 24px; border: 1px solid rgba(255,255,255,0.14); border-radius: 8px; background: rgba(0,0,0,0.18); }
-.footer-disclaimer__label { font-family: var(--font-body); font-size: 10.5px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bb-teal-300, #74cdd1); margin: 0 0 10px; }
-.footer-disclaimer__body { font-family: var(--font-body); font-size: 12.5px; line-height: 1.6; color: rgba(255,255,255,0.7); margin: 0; max-width: 92ch; }
-.footer-disclaimer__body strong { color: rgba(255,255,255,0.92); font-weight: 600; }
-.footer-disclaimer__body a { color: var(--bb-teal-300, #74cdd1); text-decoration: underline; text-underline-offset: 2px; }
-.footer-disclaimer__body a:hover { color: var(--bb-teal-200, #a5e0e3); }
+.footer-disclaimer { max-width: var(--max); margin: 0 auto 24px; padding: 22px 24px; border: 1px solid var(--rule); border-radius: 8px; background: var(--white); }
+.footer-disclaimer__label { font-family: var(--font-body); font-size: 10.5px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brand-accent-dim); margin: 0 0 10px; }
+.footer-disclaimer__body { font-family: var(--font-body); font-size: 12.5px; line-height: 1.6; color: var(--ink-2); margin: 0; max-width: 92ch; }
+.footer-disclaimer__body strong { color: var(--ink); font-weight: 600; }
+.footer-disclaimer__body a { color: var(--brand-primary); text-decoration: underline; text-underline-offset: 2px; }
+.footer-disclaimer__body a:hover { color: var(--brand-accent-dim); }
 
 /* ============================================================
    VARIANT MODIFIERS — composed in HTML by adding to <body>
