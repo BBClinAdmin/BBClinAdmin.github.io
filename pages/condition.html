@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>V2 mid-fi · Condition · Boulder Biologics</title>
+<title>Conditions We Treat · Boulder Biologics</title>
 <link rel="icon" type="image/png" href="../assets/logo-stacked.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -438,7 +438,7 @@
   }
 </style>
 </head>
-<body data-screen-label="V2 mid-fi · Condition (dynamic)">
+<body data-screen-label="Condition (dynamic)">
 
 <div class="announce">
   <span>Boulder, Colorado</span>
@@ -456,9 +456,6 @@
     <nav aria-label="Primary">
       <a href="index.html#services">Services</a>
       <a href="index.html#conditions" aria-current="page">Conditions</a>
-      <a href="cellular-therapy.html" data-priority="low">Cellular Therapy</a>
-      <a href="prp.html" data-priority="low">PRP</a>
-      <a href="longevity.html">Longevity</a>
       <a href="index.html#about">Our Team</a>
       <a href="facilities.html">Facilities</a>
       <a href="fda-guidelines.html">FDA Guidelines</a>
@@ -864,13 +861,13 @@ function renderCondition(slug) {
   if (!c) {
     document.getElementById('condition-view').hidden = true;
     document.getElementById('condition-404').hidden = false;
-    document.title = 'V2 mid-fi · Condition not found · Boulder Biologics';
+    document.title = 'Condition not found · Boulder Biologics';
     return;
   }
 
   // Title / pillar / lede
-  document.title = 'V2 mid-fi · ' + c.title + ' · Boulder Biologics';
-  document.body.setAttribute('data-screen-label', 'V2 mid-fi · Condition · ' + c.title);
+  document.title = c.title + ' · Boulder Biologics';
+  document.body.setAttribute('data-screen-label', 'Condition · ' + c.title);
   setText('title', c.title);
   setText('pillar', c.pillar);
   setText('lede', c.lede);
