@@ -166,6 +166,28 @@
       grid-template-columns: 1fr; gap: 32px;
     }
   }
+
+  /* ── Compact adjustments (Rob review) ─────────────────────── */
+  section[data-comment-anchor="42428301f9-section"],
+  section[data-comment-anchor="8c66a5488e-section"] { padding-top: 56px; padding-bottom: 56px; }
+  section[data-comment-anchor="42428301f9-section"] .contact-card,
+  section[data-comment-anchor="42428301f9-section"] .hours-card { padding: 30px 34px; gap: 16px; }
+  section[data-comment-anchor="8c66a5488e-section"] .map-slot { min-height: 320px; }
+
+  /* Visit-guidance section — much more compact */
+  section[data-comment-anchor="e824b0cd7e-section"] { padding-top: 42px; padding-bottom: 42px; }
+  section[data-comment-anchor="e824b0cd7e-section"] .h2 { margin-bottom: 16px; }
+  section[data-comment-anchor="e824b0cd7e-section"] .visit-card { margin-top: 16px; padding: 26px 32px; max-width: none; }
+  section[data-comment-anchor="e824b0cd7e-section"] .visit-card p { margin-bottom: 8px; }
+  section[data-comment-anchor="e824b0cd7e-section"] .visit-card h3 { margin-bottom: 8px; }
+  section[data-comment-anchor="e824b0cd7e-section"] .visit-card ul {
+    list-style: none; padding-left: 0; margin: 4px 0 10px;
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  section[data-comment-anchor="e824b0cd7e-section"] .visit-card ul li {
+    margin: 0; padding: 5px 13px; border: 1px solid var(--rule);
+    border-radius: 999px; background: var(--paper-2); font-size: 14px;
+  }
 </style>
   <link rel="stylesheet" href="_nav.css" />
 </head>
@@ -273,7 +295,7 @@
     <div class="inner">
       <p class="eyebrow">Office location</p>
       <h2 class="h2">Getting to the clinic.</h2>
-      <div class="map-grid" style="margin-top: 32px;">
+      <div class="map-grid" style="margin-top: 24px;">
         <div class="map-slot" role="img" aria-label="Map of Boulder Biologics location">
           <iframe
             title="Map to Boulder Biologics, 4745 Arapahoe Ave Ste 300, Boulder, CO 80303"
@@ -323,9 +345,9 @@
   <section class="final-cta" id="schedule">
     <div class="inner">
       <div>
-        <p class="eyebrow on-dark">Schedule a consultation</p>
-        <h2 class="h2">Let's set up your visit.</h2>
-        <p>The form below routes to the clinic. We'll respond on the next business day with available consultation times.</p>
+        <p class="eyebrow on-dark">Contact the clinic</p>
+        <h2 class="h2">Send us a message.</h2>
+        <p>The form below routes directly to the clinic. We'll respond on the next business day.</p>
         <a class="btn btn-ghost-light" href="tel:+17205506175">Or call 720-550-6175</a>
       </div>
       <form class="cta-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Request received ✓'; this.querySelector('button').disabled=true;">
