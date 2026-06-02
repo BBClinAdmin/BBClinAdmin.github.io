@@ -1,14 +1,69 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta http-equiv="refresh" content="0; url=pages/index.html" />
-<link rel="canonical" href="pages/index.html" />
-<title>Boulder Biologics</title>
-<script>location.replace("pages/index.html" + location.search + location.hash);</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BBClinAdmin — Site Index</title>
+  <meta name="robots" content="noindex" />
+  <style>
+    :root {
+      --bg: #0f1115;
+      --card: #181b22;
+      --border: #272b35;
+      --text: #e8eaed;
+      --muted: #9aa0aa;
+      --accent: #5b8cff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      padding: 2rem;
+    }
+    .wrap { width: 100%; max-width: 640px; }
+    h1 { font-size: 1.5rem; margin: 0 0 .35rem; }
+    .sub { color: var(--muted); margin: 0 0 2rem; font-size: .95rem; }
+    .grid { display: grid; gap: 1rem; }
+    a.card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color .15s ease, transform .15s ease;
+    }
+    a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .card h2 { margin: 0 0 .25rem; font-size: 1.1rem; }
+    .card p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .card .url { display: inline-block; margin-top: .6rem; color: var(--accent); font-size: .85rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    footer { margin-top: 2rem; color: var(--muted); font-size: .8rem; }
+  </style>
 </head>
 <body>
-<p>Redirecting to <a href="pages/index.html">Boulder Biologics</a>…</p>
+  <main class="wrap">
+    <h1>BBClinAdmin</h1>
+    <p class="sub">Project index. Choose a site below.</p>
+    <div class="grid">
+      <a class="card" href="boulder-biologics/">
+        <h2>Boulder Biologics</h2>
+        <p>Regenerative medicine clinic — marketing site.</p>
+        <span class="url">/boulder-biologics/</span>
+      </a>
+      <a class="card" href="orthobio/">
+        <h2>Orthobio</h2>
+        <p>New business venture.</p>
+        <span class="url">/orthobio/</span>
+      </a>
+    </div>
+    <footer>This page is an internal index and is not indexed by search engines.</footer>
+  </main>
 </body>
 </html>
