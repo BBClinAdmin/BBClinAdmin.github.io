@@ -340,6 +340,7 @@
     .custody ol li { grid-template-columns: 1fr; gap: 6px; }
   }
 </style>
+<link rel="stylesheet" href="_nav.css" />
 </head>
 <body data-screen-label="About · Our Facilities">
 
@@ -348,6 +349,11 @@
     <a class="site-header__logo" href="index.html" aria-label="Boulder Biologics home">
       <img src="../assets/logo-stacked.png" alt="Boulder Biologics" />
     </a>
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+    </button>
     <nav aria-label="Primary">
       <a href="index.html#services">Services</a>
       <a href="index.html#conditions">Conditions</a>
@@ -817,5 +823,6 @@
 </footer>
 
 <script defer src="../assets/image-loader.js"></script>
+<script src="_nav.js" defer></script>
 </body>
 </html>

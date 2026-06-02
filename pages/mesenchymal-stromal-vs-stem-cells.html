@@ -66,6 +66,7 @@
   .markers .chip { padding: 5px 10px; border-radius: 999px; font-family: var(--font-mono); font-size: 11.5px; }
   .markers .label { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em; color: var(--muted); text-transform: uppercase; margin-right: 6px; }
 </style>
+<link rel="stylesheet" href="_nav.css" />
 </head>
 <body data-screen-label="Learn · Mesenchymal stromal vs. stem cells">
 
@@ -74,6 +75,11 @@
     <a class="site-header__logo" href="index.html" aria-label="Boulder Biologics home">
       <img src="../assets/logo-stacked.png" alt="Boulder Biologics" />
     </a>
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+    </button>
     <nav aria-label="Primary">
       <a href="index.html#services">Services</a>
       <a href="index.html#conditions">Conditions</a>
@@ -377,5 +383,6 @@
   </div>
 </footer>
 
+<script src="_nav.js" defer></script>
 </body>
 </html>

@@ -939,6 +939,7 @@
     .final-cta__panel { padding: 40px; }
   }
 </style>
+<link rel="stylesheet" href="_nav.css" />
 </head>
 <body data-screen-label="Homepage">
 
@@ -947,6 +948,11 @@
     <a class="site-header__logo" href="index.html" aria-label="Boulder Biologics home">
       <img src="../assets/logo-stacked.png" alt="Boulder Biologics" />
     </a>
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+    </button>
     <nav aria-label="Primary">
       <a href="#services">Services</a>
       <a href="#conditions">Conditions</a>
@@ -1623,5 +1629,6 @@ We also research them.</h2>
     });
   });
 </script>
+<script src="_nav.js" defer></script>
 </body>
 </html>
