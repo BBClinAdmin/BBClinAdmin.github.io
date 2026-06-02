@@ -15,7 +15,7 @@
 
 /* Table of contents card */
 .toc-card { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: 26px 28px; }
-.toc-card .lbl { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
+.toc-card .lbl { font-family: var(--font-display); font-weight: 600; font-size: 12.5px; letter-spacing: 0; text-transform: none; color: var(--brand-accent-dim); margin: 0 0 14px; }
 .toc-card ol { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
 .toc-card ol li { counter-increment: toc; border-top: 1px solid var(--rule-soft); padding: 11px 0; font-size: 14px; line-height: 1.45; display: grid; grid-template-columns: 28px 1fr; gap: 12px; align-items: baseline; }
 .toc-card ol li:first-child { border-top: none; padding-top: 0; }
@@ -36,18 +36,18 @@
 
 /* Direct-answer card */
 .direct { background: var(--bb-navy-500); color: var(--white); border-radius: var(--r-lg); padding: 32px 36px; margin: 0 0 32px; }
-.direct .lbl { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--bb-teal-300); margin: 0 0 12px; }
+.direct .lbl { font-family: var(--font-display); font-weight: 600; font-size: 12.5px; letter-spacing: 0; text-transform: none; color: var(--bb-teal-300); margin: 0 0 12px; }
 .direct p { font-family: var(--font-serif); font-size: 19px; line-height: 1.55; color: rgba(255,255,255,0.92); margin: 0; }
 .direct p strong { color: var(--white); font-weight: 600; }
 
 /* Definition / pull-quote card */
 .defn { background: var(--paper-2); border: 1px solid var(--rule); border-left: 3px solid var(--brand-accent); border-radius: var(--r-md); padding: 24px 28px; margin: 24px 0; }
-.defn .lbl { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand-accent-dim); margin: 0 0 8px; }
+.defn .lbl { font-family: var(--font-display); font-weight: 600; font-size: 12.5px; letter-spacing: 0; text-transform: none; color: var(--brand-accent-dim); margin: 0 0 8px; }
 .defn p { font-family: var(--font-serif); font-size: 17px; line-height: 1.6; color: var(--ink); margin: 0; }
 
 /* Verbatim regulatory framing block */
 .reg-verbatim { background: #fef9ec; border: 1px solid #f0d76a; border-radius: var(--r-md); padding: 20px 24px; margin: 24px 0; }
-.reg-verbatim .lbl { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: #7a5d00; margin: 0 0 8px; }
+.reg-verbatim .lbl { font-family: var(--font-display); font-weight: 600; font-size: 12.5px; letter-spacing: 0; text-transform: none; color: #7a5d00; margin: 0 0 8px; }
 .reg-verbatim p { font-family: var(--font-body); font-size: 14.5px; line-height: 1.6; color: var(--ink); margin: 0 0 8px; font-style: italic; }
 .reg-verbatim p:last-child { margin-bottom: 0; }
 .reg-verbatim strong { font-style: normal; font-weight: 600; color: var(--ink); }

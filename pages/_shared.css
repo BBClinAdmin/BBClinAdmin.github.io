@@ -97,7 +97,7 @@ img { max-width: 100%; display: block; }
 .btn-sm { padding: 10px 16px; font-size: 13.5px; border-radius: 6px; }
 
 /* ---------- Typography helpers ---------- */
-.eyebrow { font-family: var(--font-body); font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bb-teal-700); }
+.eyebrow { font-family: var(--font-display); font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--bb-teal-700); }
 .eyebrow.on-dark { color: var(--bb-teal-200); }
 .h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(40px, 5vw, 64px); line-height: 1.04; letter-spacing: -0.025em; margin: 14px 0 18px; text-wrap: balance; }
 .h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.08; letter-spacing: -0.02em; margin: 12px 0 14px; text-wrap: balance; }
@@ -117,7 +117,7 @@ img { max-width: 100%; display: block; }
 .svc-hero__grid { max-width: 1280px; margin: 28px auto 0; display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: center; }
 .svc-hero h1.h1 { margin-top: 6px; }
 .svc-hero__quick { background: white; border: 1px solid var(--color-divider); border-radius: 18px; padding: 28px; box-shadow: var(--shadow-sm); }
-.svc-hero__quick h2 { font-family: var(--font-display); font-weight: 700; font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--bb-teal-700); margin: 0 0 18px; }
+.svc-hero__quick h2 { font-family: var(--font-display); font-weight: 700; font-size: 16px; letter-spacing: 0; text-transform: none; color: var(--bb-teal-700); margin: 0 0 18px; }
 .svc-hero__quick .qrow { display: flex; justify-content: space-between; padding: 12px 0; border-top: 1px solid var(--color-divider); font-family: var(--font-body); font-size: 14px; }
 .svc-hero__quick .qrow:first-of-type { border-top: 0; }
 .svc-hero__quick .qk { color: var(--color-fg-muted); }
@@ -147,7 +147,7 @@ img { max-width: 100%; display: block; }
 .candidacy__col { border-radius: 16px; padding: 26px 28px; }
 .candidacy__col.good { background: var(--color-success-bg); border: 1px solid #c9e0d2; }
 .candidacy__col.warn { background: var(--color-warning-bg); border: 1px solid #ebd49e; }
-.candidacy__lbl { font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+.candidacy__lbl { font-family: var(--font-display); font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
 .candidacy__col.good .candidacy__lbl { color: #2f7a5b; }
 .candidacy__col.warn .candidacy__lbl { color: #b9821a; }
 .candidacy__col h3 { font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: -0.01em; margin: 0 0 14px; color: var(--color-fg); }
@@ -183,7 +183,7 @@ img { max-width: 100%; display: block; }
 .final-cta h2 { font-family: var(--font-display); font-weight: 700; font-size: 44px; letter-spacing: -0.02em; line-height: 1.05; margin: 14px 0 16px; color: white; }
 .final-cta p { font-family: var(--font-body); font-size: 17px; line-height: 1.55; color: rgba(255,255,255,0.86); margin: 0 0 28px; max-width: 540px; }
 .final-cta__form { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); backdrop-filter: blur(8px); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
-.final-cta__form label { font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--bb-teal-200); }
+.final-cta__form label { font-family: var(--font-display); font-size: 12.5px; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--bb-teal-200); }
 .final-cta__form input, .final-cta__form select { font-family: var(--font-body); font-size: 15px; padding: 12px 14px; border-radius: 8px; border: 0; background: rgba(255,255,255,0.92); color: var(--color-fg); outline: none; }
 .final-cta__form input:focus, .final-cta__form select:focus { box-shadow: 0 0 0 3px rgba(4,151,157,0.5); background: white; }
 .final-cta__form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -193,7 +193,7 @@ img { max-width: 100%; display: block; }
 .site-footer__cols { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px 32px; margin-bottom: 48px; }
 .site-footer img { width: 160px; margin-bottom: 16px; }
 .site-footer .ft-tag { font-family: var(--font-serif); font-style: italic; font-size: 15px; line-height: 1.55; color: var(--color-fg-muted, #5b6877); max-width: 320px; margin-bottom: 18px; }
-.site-footer h4 { font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bb-teal-700); margin: 0 0 16px; }
+.site-footer h4 { font-family: var(--font-display); font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--bb-teal-700); margin: 0 0 16px; }
 .site-footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
 .site-footer ul a { font-family: var(--font-body); font-size: 14px; color: var(--bb-navy-500); text-decoration: none; }
 .site-footer ul a:hover { color: var(--bb-teal-700); }
@@ -201,7 +201,7 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Standing regulatory disclaimer (cellular-therapy-adjacent pages) ---------- */
 .footer-disclaimer { max-width: 1280px; margin: 0 auto 24px; padding: 22px 24px; border: 1px solid var(--bb-stone-200); border-radius: 8px; background: #ffffff; }
-.footer-disclaimer__label { font-family: var(--font-body); font-size: 10.5px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bb-teal-700); margin: 0 0 10px; }
+.footer-disclaimer__label { font-family: var(--font-display); font-size: 12.5px; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--bb-teal-700); margin: 0 0 10px; }
 .footer-disclaimer__body { font-family: var(--font-body); font-size: 12.5px; line-height: 1.6; color: var(--bb-navy-500); margin: 0; max-width: 92ch; }
 .footer-disclaimer__body strong { color: var(--bb-navy-500); font-weight: 600; }
 .footer-disclaimer__body a { color: var(--bb-blue-500); text-decoration: underline; text-underline-offset: 2px; }

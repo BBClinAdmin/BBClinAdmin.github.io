@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Bone Marrow Cellular Therapy (Stem Cells), PRP &amp; Regenerative Medicine in Boulder, CO | Boulder Biologics</title>
-<meta name="description" content="Autologous orthobiologics in Boulder, Colorado — bone marrow cellular therapy (sometimes called stem cell therapy), PRP, and regenerative medicine. Patient-derived, physician-led, evidence-informed. Dr. Jason Glowney, MD." />
+<title>Cellular Therapy (Stem Cells) &amp; PRP | Boulder Biologics</title>
+<meta name="description" content="Autologous orthobiologics in Boulder, CO: bone marrow cellular therapy (sometimes called stem cell therapy), PRP, and regenerative medicine." />
 <meta name="keywords" content="stem cell therapy Boulder, mesenchymal stem cells Boulder, bone marrow therapy Colorado, BMAC Boulder, PRP Boulder, regenerative medicine Colorado, autologous orthobiologics, Jason Glowney MD" />
 <link rel="canonical" href="https://www.boulderbiologics.com/" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -134,11 +134,12 @@
 
   /* ── Type scale ───────────────────────────────────────────────────── */
   .eyebrow {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--brand-primary);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--brand-accent-dim);
     margin: 0 0 14px;
   }
   .eyebrow.on-dark { color: var(--bb-teal-300); }
@@ -385,9 +386,9 @@
   }
   .approach-stat__n sup { font-size: 14px; color: rgba(255,255,255,0.65); margin-left: 1px; }
   .approach-stat__l {
-    font-family: var(--font-mono); font-size: 10.5px;
-    letter-spacing: 0.06em; text-transform: uppercase;
-    color: rgba(255,255,255,0.62); line-height: 1.35;
+    font-family: var(--font-display); font-weight: 600; font-size: 12.5px;
+    letter-spacing: 0; text-transform: none;
+    color: var(--bb-teal-300); line-height: 1.35;
     margin: 8px 0 0;
   }
   .approach-card__foot {
@@ -395,6 +396,30 @@
     font-family: var(--font-mono); font-size: 10.5px;
     color: rgba(255,255,255,0.5); line-height: 1.55;
     max-width: 48ch;
+  }
+  /* Approach card — process steps */
+  .approach-card .approach-steps {
+    list-style: none; margin: 0; padding: 24px 0 0;
+    border-top: 1px solid rgba(255,255,255,0.16);
+    display: grid; gap: 18px;
+  }
+  .approach-card .approach-step {
+    display: grid; grid-template-columns: 32px 1fr; gap: 15px; align-items: start;
+  }
+  .approach-card .approach-step__n {
+    font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+    color: rgba(255,255,255,0.92);
+    width: 32px; height: 32px;
+    border: 1px solid rgba(255,255,255,0.28); border-radius: 50%;
+    display: grid; place-items: center;
+  }
+  .approach-card .approach-step__t {
+    font-family: var(--font-display); font-weight: 600; font-size: 15.5px;
+    letter-spacing: -0.01em; color: var(--white); margin: 1px 0 3px; max-width: none;
+  }
+  .approach-card .approach-step__d {
+    font-size: 13.5px; line-height: 1.5;
+    color: rgba(255,255,255,0.74); margin: 0; max-width: 40ch;
   }
 
   /* ── 3 pillars ────────────────────────────────────────────────────── */
@@ -468,7 +493,7 @@
     background: rgba(255,255,255,0.88); padding: 4px 8px; border-radius: 4px;
   }
   .team-card__body { padding: 22px 28px 32px; display: flex; flex-direction: column; flex: 1; }
-  .team-card__role { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+  .team-card .team-card__role { font-family: var(--font-display); font-weight: 600; font-size: 13px; letter-spacing: 0; text-transform: none; color: var(--brand-accent-dim); margin: 0 0 10px; }
   .team-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 26px; letter-spacing: -0.018em; line-height: 1.1; margin: 0 0 14px; }
   .team-card__chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 18px; }
   .team-card p { font-size: 15.5px; line-height: 1.55; }
@@ -498,7 +523,7 @@
   }
   .doc__creds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px 24px; margin: 24px 0 32px; padding-top: 24px; border-top: 1px solid var(--rule); }
   .doc__creds div { font-size: 14px; color: var(--ink-2); }
-  .doc__creds div span { display: block; font-family: var(--font-mono); font-size: 10.5px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
+  .doc__creds div span { display: block; font-family: var(--font-display); font-weight: 600; font-size: 13px; color: var(--brand-accent-dim); letter-spacing: 0; text-transform: none; margin-bottom: 4px; }
 
   /* ── Featured therapy ─────────────────────────────────────────────── */
   .featured__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
@@ -621,7 +646,7 @@
   /* ── Footer ───────────────────────────────────────────────────────── */
   footer.site-footer { background: var(--paper-2); color: var(--ink-2); padding: 64px var(--gutter) 32px; border-top: 1px solid var(--rule); }
   .site-footer__cols { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 48px; }
-  .site-footer h4 { font-family: var(--font-display); font-weight: 600; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); margin: 0 0 14px; }
+  .site-footer h4 { font-family: var(--font-display); font-weight: 600; font-size: 14px; letter-spacing: 0; text-transform: none; color: var(--brand-accent-dim); margin: 0 0 14px; }
   .site-footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
   .site-footer a { color: var(--ink-2); text-decoration: none; font-size: 14.5px; }
   .site-footer a:hover { color: var(--brand-accent-dim); }
@@ -642,9 +667,10 @@
   .reviews-band__summary { border-right: 1px solid var(--rule); padding-right: 24px; }
   .reviews-band__stars { font-size: 18px; letter-spacing: 4px; color: var(--brand-accent); margin-bottom: 6px; }
   .reviews-band__score { font-family: var(--font-display); font-weight: 700; font-size: 44px; letter-spacing: -0.02em; line-height: 1; color: var(--ink); margin-bottom: 10px; }
+  .reviews-band__lead { font-family: var(--font-display); font-weight: 700; font-size: 26px; letter-spacing: -0.01em; line-height: 1.1; color: var(--ink); margin: 0 0 10px; }
   .reviews-band__meta { font-size: 13px; color: var(--ink-2); line-height: 1.45; }
   .reviews-band__meta strong { color: var(--ink); font-weight: 600; }
-  .reviews-band__meta-foot { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
+  .reviews-band__meta-foot { font-family: var(--font-display); font-weight: 600; font-size: 12px; letter-spacing: 0; text-transform: none; color: var(--brand-accent-dim); margin-top: 8px; }
   .review-card {
     border: 1px solid var(--rule); border-radius: var(--r-lg);
     padding: 18px 20px; background: var(--white);
@@ -655,7 +681,7 @@
   .review-card__quote { font-family: var(--font-serif); font-size: 15px; line-height: 1.5; color: var(--ink); margin: 0; }
   .review-card__foot { display: flex; justify-content: space-between; align-items: baseline; margin-top: auto; padding-top: 4px; }
   .review-card__who { font-family: var(--font-body); font-size: 12.5px; color: var(--muted); }
-  .review-card__src { font-family: var(--font-mono); font-size: 10px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+  .review-card__src { font-family: var(--font-display); font-weight: 600; font-size: 12px; color: var(--brand-accent-dim); letter-spacing: 0; text-transform: none; }
 
   /* ── Pillar chevron sub-list + footer CTA enhancement ─────────────── */
   .pillar-card .pillar-sublist {
@@ -780,15 +806,20 @@
 
   /* ── Team credential grids inside team cards ──────────────────────── */
   .team-card__creds {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px;
+    columns: 2; column-gap: 24px;
     margin: 18px 0 22px;
     padding: 18px 0 0;
     border-top: 1px solid var(--rule-soft);
   }
+  .team-card__creds > div {
+    break-inside: avoid; -webkit-column-break-inside: avoid;
+    margin-bottom: 14px;
+  }
+  .team-card__creds > div:last-child { margin-bottom: 0; }
   .team-card__creds .cred-label {
-    display: block; font-family: var(--font-mono);
-    font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 4px;
+    display: block; font-family: var(--font-display); font-weight: 600;
+    font-size: 13px; letter-spacing: 0; text-transform: none;
+    color: var(--brand-accent-dim); margin-bottom: 3px;
   }
   .team-card__creds .cred-value {
     font-family: var(--font-body); font-size: 13.5px; color: var(--ink); line-height: 1.4;
@@ -796,8 +827,9 @@
   .team-card__creds .cred-sub {
     display: block; font-size: 12px; color: var(--muted); margin-top: 1px;
   }
-  .team-card.is-joining .cred-value { color: var(--muted); font-style: italic; }
-  .team-card.is-joining .cred-tag {
+  .team-card__creds .cred-line { display: block; }
+  .team-card__creds .cred-line + .cred-line { margin-top: 7px; }
+  .team-card .cred-tag {
     display: inline-block; margin-left: 6px;
     font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.08em;
     text-transform: uppercase; color: var(--muted);
@@ -817,9 +849,9 @@
   .intake-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .intake-field { display: flex; flex-direction: column; gap: 6px; }
   .intake-field label {
-    font-family: var(--font-mono); font-size: 10.5px;
-    letter-spacing: 0.06em; text-transform: uppercase;
-    color: rgba(255,255,255,0.6);
+    font-family: var(--font-display); font-weight: 600; font-size: 12.5px;
+    letter-spacing: 0; text-transform: none;
+    color: var(--bb-teal-300);
   }
   .intake-field input, .intake-field select {
     background: var(--white); color: var(--ink);
@@ -908,8 +940,8 @@
     align-items: center;
   }
   .qc__pull__lbl {
-    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--bb-teal-300);
+    font-family: var(--font-display); font-weight: 600; font-size: 12.5px; letter-spacing: 0;
+    text-transform: none; color: var(--bb-teal-300);
   }
   .qc__pull p {
     font-family: var(--font-display); font-weight: 600; font-size: 26px;
@@ -929,7 +961,7 @@
       gap: 32px;
     }
     .reviews-band__summary { border-right: none; border-bottom: 1px solid var(--rule); padding-right: 0; padding-bottom: 24px; }
-    .team-card__creds { grid-template-columns: 1fr; }
+    .team-card__creds { columns: 1; }
     .intake-form .row { grid-template-columns: 1fr; }
     .hero__trust { grid-template-columns: 1fr; gap: 16px; }
     .approach-card { padding: 32px; min-height: 0; }
@@ -939,7 +971,7 @@
     .final-cta__panel { padding: 40px; }
   }
 </style>
-<link rel="stylesheet" href="_nav.css" />
+  <link rel="stylesheet" href="_nav.css" />
 </head>
 <body data-screen-label="Homepage">
 
@@ -1014,24 +1046,39 @@
       </div>
 
       <aside class="approach-card">
-        <p class="eyebrow">The Boulder Biologics approach</p>
-        <h2>Patient-derived. Physician-led. Evidence-informed.</h2>
-        <p>Every therapy is <strong>autologous</strong> — we use your own biologic material, processed in our on-site lab with emphasis on sterility, viability, and traceability — then deliver it with anatomic precision in a single in-clinic visit.</p>
-        <div class="approach-card__stats">
-          <div>
-            <p class="approach-stat__n">85%<sup>*</sup></p>
-            <p class="approach-stat__l">Report meaningful pain reduction at 12 weeks</p>
-          </div>
-          <div>
-            <p class="approach-stat__n">4.9<sup>★</sup></p>
-            <p class="approach-stat__l">From 230+ patient reviews</p>
-          </div>
-          <div>
-            <p class="approach-stat__n">94%<sup>*</sup></p>
-            <p class="approach-stat__l">Would recommend the clinic</p>
-          </div>
-        </div>
-        <p class="approach-card__foot">* Internal patient survey, knee &amp; tendon biologics cohort, 2022–2024. Individual results vary.</p>
+        <p class="eyebrow">What to expect</p>
+        <h2>With you at every step.</h2>
+        <p>From first consultation to follow-up, your care follows the same clear path.</p>
+        <ol class="approach-steps">
+          <li class="approach-step">
+            <span class="approach-step__n">1</span>
+            <div>
+              <p class="approach-step__t">Consultation &amp; evaluation</p>
+              <p class="approach-step__d">We talk through your history and symptoms and examine the area and any imaging you have.</p>
+            </div>
+          </li>
+          <li class="approach-step">
+            <span class="approach-step__n">2</span>
+            <div>
+              <p class="approach-step__t">Your treatment plan</p>
+              <p class="approach-step__d">We recommend the approach that best fits your condition and goals, and explain honestly what it can and can't do.</p>
+            </div>
+          </li>
+          <li class="approach-step">
+            <span class="approach-step__n">3</span>
+            <div>
+              <p class="approach-step__t">Treatment in clinic</p>
+              <p class="approach-step__d">When you're ready, your treatment is performed on-site with the precision and care each procedure calls for.</p>
+            </div>
+          </li>
+          <li class="approach-step">
+            <span class="approach-step__n">4</span>
+            <div>
+              <p class="approach-step__t">Follow-up as needed</p>
+              <p class="approach-step__d">Check-ins over the weeks that follow to track your recovery.</p>
+            </div>
+          </li>
+        </ol>
       </aside>
     </div>
   </section>
@@ -1040,32 +1087,31 @@
   <section class="reviews-band" aria-label="Patient reviews">
     <div class="reviews-band__inner">
       <div class="reviews-band__summary">
-        <div class="reviews-band__stars">★ ★ ★ ★ ★</div>
-        <div class="reviews-band__score">4.9</div>
-        <p class="reviews-band__meta"><strong>230+ patient reviews</strong> across Google, Healthgrades &amp; Yelp</p>
-        <p class="reviews-band__meta-foot">Verified · updated monthly</p>
+        <p class="reviews-band__lead">Honest, caring, effective.</p>
+        <p class="reviews-band__meta">The themes patients return to most: straight answers about what treatment can and can't do, a team that listens, and care that helped them get back to the activities that matter.</p>
+        <p class="reviews-band__meta-foot">Verified Google reviews</p>
       </div>
       <div class="review-card">
         <div class="review-card__stars">★ ★ ★ ★ ★</div>
-        <p class="review-card__quote">“Dr. Glowney explained the biology clearly and told me honestly what PRP could and couldn't do for my knee. Six months out, hiking again.”</p>
+        <p class="review-card__quote">“After struggling to find success with post-surgical stiffness and pain in my ankle, their treatments worked wonders. I now don't think about my ankle at all while I run, ski, hike, play basketball, and play tennis.”</p>
         <div class="review-card__foot">
-          <span class="review-card__who">Marisa T. · Knee OA, PRP</span>
+          <span class="review-card__who">Henry Locke</span>
           <span class="review-card__src">Google</span>
         </div>
       </div>
       <div class="review-card">
         <div class="review-card__stars">★ ★ ★ ★ ★</div>
-        <p class="review-card__quote">“Most thorough consultation I've had. They reviewed my MRI, talked through every option, and didn't pressure me into a procedure.”</p>
+        <p class="review-card__quote">“The team is so knowledgeable, caring, and thorough with all aspects of your visit. They are completely honest, instead of giving you false expectations. The client education is top notch!”</p>
         <div class="review-card__foot">
-          <span class="review-card__who">David R. · Rotator cuff, BMAC</span>
-          <span class="review-card__src">Healthgrades</span>
+          <span class="review-card__who">Lilli B</span>
+          <span class="review-card__src">Google</span>
         </div>
       </div>
       <div class="review-card">
         <div class="review-card__stars">★ ★ ★ ★ ★</div>
-        <p class="review-card__quote">“Refreshing integrity. They told me my arthritis was too advanced for PRP and referred me to a surgeon. Trust earned.”</p>
+        <p class="review-card__quote">“They look at you as a whole to get to the root of the problem instead of just pinpoint treating where you think hurts… I felt heard, seen, and valued as a person.”</p>
         <div class="review-card__foot">
-          <span class="review-card__who">Sandra K. · Knee consult</span>
+          <span class="review-card__who">Mandy Fiedler</span>
           <span class="review-card__src">Google</span>
         </div>
       </div>
@@ -1076,7 +1122,7 @@
   <section id="services" class="alt">
     <div class="inner">
       <p class="eyebrow">Our services</p>
-      <h2 class="h2">One Principle: autologous</h2>
+      <h2 class="h2">One Principle: Autologous</h2>
       <p class="lede">Every clinical therapy is <strong style="color: rgb(5, 151, 157); font-weight: 600; font-size: 22px">autologous</strong> — your own cells supporting your own body's repair. Orthopedic regenerative medicine, longevity medicine, and biologic therapies for complex systemic conditions, all under one roof.</p>
       <div class="pillars__grid">
         <article class="pillar-card">
@@ -1108,12 +1154,12 @@
           <h3>Longevity Medicine</h3>
           <p>Root-cause assessment and biologic strategies for healthy aging.</p>
           <ul class="pillar-sublist">
-            <li><a href="#">Longevity overview</a></li>
-            <li><a href="#">Aging &amp; epigenetics</a></li>
-            <li><a href="#">Cardiometabolic biomarkers</a></li>
-            <li><a href="#">Hormone replacement</a></li>
-            <li><a href="#">Mitochondrial function</a></li>
-            <li><a href="#">Diet, sleep &amp; exercise</a></li>
+            <li><a href="longevity.html">Longevity overview</a></li>
+            <li><a href="longevity.html">Aging &amp; epigenetics</a></li>
+            <li><a href="longevity.html">Cardiometabolic biomarkers</a></li>
+            <li><a href="longevity.html">Hormone replacement</a></li>
+            <li><a href="longevity.html">Mitochondrial function</a></li>
+            <li><a href="longevity.html">Diet, sleep &amp; exercise</a></li>
           </ul>
           <a class="pillar-card__cta" href="longevity.html">Explore longevity care →</a>
         </article>
@@ -1150,12 +1196,12 @@
             <p>Dr. Glowney moved to Colorado in 2009 for a Sports Medicine fellowship at the University of Colorado and has practiced biologic orthopedics in Boulder ever since. He is uniquely qualified in the field of orthobiologics, with extensive training in Internal Medicine (hematology and rheumatology), Emergency Medicine (orthopedic trauma), interventional orthopedics, and over ten years of post-fellowship experience.</p>
             <p>Alongside medicine, he founded the <strong>Apeiron / Boulder Biologics Research Center</strong>, the clinic's affiliated non-profit running clinical-trials research on cellular therapy.</p>
             <div class="team-card__creds">
-              <div><span class="cred-label">Medical Training</span><span class="cred-value">Internal Medicine · Emergency Medicine<span class="cred-sub">Residency &amp; clinical experience</span></span></div>
+              <div><span class="cred-label">Role</span><span class="cred-value">Founder · Physician<span class="cred-sub">Leads every clinical decision</span></span></div>
+              <div><span class="cred-label">Education</span><span class="cred-value">MD · MSc, Applied Mathematics<span class="cred-sub">Master's, University of Washington</span></span></div>
+              <div><span class="cred-label">Certifications</span><span class="cred-value">Internal · Emergency · Sports Med (CAQSM)<span class="cred-sub">American Board of Internal Medicine</span></span></div>
+              <div><span class="cred-label">Clinical focus</span><span class="cred-value">Interventional orthobiologics<span class="cred-sub">Image-guided, patient-derived</span></span></div>
               <div><span class="cred-label">Fellowship</span><span class="cred-value">Sports Medicine<span class="cred-sub">University of Colorado · 2009</span></span></div>
-              <div><span class="cred-label">Board Certifications</span><span class="cred-value">Internal · Emergency · Sports Med (CAQSM)<span class="cred-sub">American Board of Internal Medicine</span></span></div>
-              <div><span class="cred-label">Master's Degree</span><span class="cred-value">MSc, Applied Mathematics<span class="cred-sub">University of Washington</span></span></div>
-              <div><span class="cred-label">Research Focus</span><span class="cred-value">ML / AI in regenerative orthobiologics<span class="cred-sub">PI on cellular-therapy literature</span></span></div>
-              <div><span class="cred-label">Author</span><span class="cred-value">Mathematical Foundations and the Singularity<span class="cred-sub">Published, 2024</span></span></div>
+              <div><span class="cred-label">Research &amp; writing</span><span class="cred-value">PI, IRB cellular-therapy trials<span class="cred-sub">Author — Mathematical Foundations and the Singularity (2024)</span></span></div>
             </div>
             <div class="team-card__cta">
               <a class="btn btn-outline btn-sm" href="#schedule">Book with Dr. Glowney</a>
@@ -1165,7 +1211,7 @@
         </article>
 
         <!-- Card 2 · Ryan Shiling, NP -->
-        <article class="team-card is-joining">
+        <article class="team-card">
           <div class="team-card__header">
             <div class="team-card__photo" data-img-id="index-team-shiling" data-label="Ryan Shiling, NP · headshot"></div>
             <div class="team-card__intro">
@@ -1179,19 +1225,16 @@
             </div>
           </div>
           <div class="team-card__body">
-            <p>Ryan's clinical path runs the full length of acute and primary care — from EMT, to Medical Assistant, to Registered Nurse, and now a graduate of Nurse Practitioner training! He co-founded Boulder Biologics with Dr. Glowney in 2018 and works across patient evaluations, pre-procedure consultations, and follow-up care.</p>
+            <p>Ryan's clinical path runs the full length of acute and primary care — from EMT, to Medical Assistant, to Registered Nurse, and now completing Nurse Practitioner training (expected 2026). He co-founded Boulder Biologics with Dr. Glowney in 2018 and works across patient evaluations, pre-procedure consultations, and follow-up care.</p>
             <p>An avid cyclist himself, Ryan understands athletes — how injuries actually disrupt training, what realistic return-to-sport looks like, and where biologic therapies fit in a competitive timeline.</p>
             <div class="team-card__creds">
-              <div><span class="cred-label">Role</span><span class="cred-value">Co-Founder</span></div>
-              <div><span class="cred-label">Title</span><span class="cred-value">Clinical Staff</span></div>
-              <div><span class="cred-label">License</span><span class="cred-value">Registered Nurse (RN)</span></div>
-              <div><span class="cred-label">Advanced practice</span><span class="cred-value">NP <span class="cred-tag">Exp. 2026</span></span></div>
-              <div><span class="cred-label">Focus</span><span class="cred-value">Orthopedic regenerative medicine</span></div>
-              <div><span class="cred-label">Memberships</span><span class="cred-value">TBD <span class="cred-tag">pending</span></span></div>
+              <div><span class="cred-label">Role</span><span class="cred-value">Co-Founder · Clinical Staff<span class="cred-sub">Evaluations, consults &amp; follow-up</span></span></div>
+              <div><span class="cred-label">Education</span><span class="cred-value"><span class="cred-line">BS, Health Science<span class="cred-sub">Florida International University</span></span><span class="cred-line">BSN<span class="cred-sub">Denver College of Nursing</span></span><span class="cred-line">MSN<span class="cred-sub">University of Cincinnati</span></span></span></div>
+              <div><span class="cred-label">Certifications</span><span class="cred-value"><span class="cred-line">Registered Nurse (RN)<span class="cred-sub">American Nurses Association</span></span><span class="cred-line">Nurse Practitioner (NP) <span class="cred-tag">Exp. 2026</span><span class="cred-sub">In training</span></span></span></div>
+              <div><span class="cred-label">Clinical focus</span><span class="cred-value">Orthopedic regenerative medicine<span class="cred-sub">Return-to-sport for athletes</span></span></div>
             </div>
             <div class="team-card__cta">
               <a class="btn btn-outline btn-sm" href="#schedule">Book with Ryan</a>
-              <a href="#" style="color: var(--muted); font-family: var(--font-display); font-weight: 600; font-size: 13.5px; text-decoration: none; padding-left: 6px;">Read full bio →</a>
             </div>
           </div>
         </article>
@@ -1208,7 +1251,7 @@
       <p class="lede">Most patients arrive with a specific issue. Pick the closest match — we'll show you the therapies most relevant to your situation.</p>
       <div class="conditions__grid">
 
-        <a class="condition-card" href="condition.html?c=knee">
+        <a class="condition-card" href="knee-pain-arthritis.html">
           <div class="condition-card__ic">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"></circle><path d="M12 8v6m-3 7 3-7 3 7"></path></svg>
           </div>
@@ -1217,7 +1260,7 @@
           <div class="condition-card__therapies">Bone marrow therapy · PRP · Hyaluronic acid <span>→</span></div>
         </a>
 
-        <a class="condition-card" href="condition.html?c=hip-back-si">
+        <a class="condition-card" href="hip-back-si-pain.html">
           <div class="condition-card__ic">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4v16M16 4v16M8 8h8M8 16h8"></path></svg>
           </div>
@@ -1226,7 +1269,7 @@
           <div class="condition-card__therapies">PRP · Prolotherapy · Hydrodissection <span>→</span></div>
         </a>
 
-        <a class="condition-card" href="condition.html?c=shoulder">
+        <a class="condition-card" href="shoulder-rotator-cuff.html">
           <div class="condition-card__ic">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"></circle><path d="M5 21v-2a7 7 0 0 1 14 0v2"></path></svg>
           </div>
@@ -1235,7 +1278,7 @@
           <div class="condition-card__therapies">Bone marrow therapy · PRP · EPAT <span>→</span></div>
         </a>
 
-        <a class="condition-card" href="condition.html?c=tendon-ligament">
+        <a class="condition-card" href="tendon-ligament-injuries.html">
           <div class="condition-card__ic">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l3-9 6 18 3-9h4"></path></svg>
           </div>
@@ -1244,7 +1287,7 @@
           <div class="condition-card__therapies">PRP · EPAT · Prolotherapy <span>→</span></div>
         </a>
 
-        <a class="condition-card" href="condition.html?c=concussion-tbi">
+        <a class="condition-card" href="tbi-cte.html">
           <div class="condition-card__ic">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2a3 3 0 0 0-2.83 4A3 3 0 0 0 5 11a3 3 0 0 0 2 5 3 3 0 0 0 2.5 4.5"></path><path d="M14.5 2a3 3 0 0 1 2.83 4A3 3 0 0 1 19 11a3 3 0 0 1-2 5 3 3 0 0 1-2.5 4.5"></path></svg>
           </div>
@@ -1253,7 +1296,7 @@
           <div class="condition-card__therapies">Cellular therapy · Medical applications <span>→</span></div>
         </a>
 
-        <a class="condition-card" href="condition.html?c=long-covid">
+        <a class="condition-card" href="long-covid.html">
           <div class="condition-card__ic">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12c3-7 15-7 18 0M3 12c3 7 15 7 18 0"></path></svg>
           </div>
@@ -1301,7 +1344,7 @@ We also research them.</h2>
     </div>
     <div class="research__foot">
       <a class="btn btn-white" href="https://www.boulderbiologics.org">About the Research Center →</a>
-      <a class="btn btn-on-dark-outline" href="#">View active trials</a>
+      <a class="btn btn-on-dark-outline" href="https://www.boulderbiologics.org" target="_blank" rel="noopener">View active trials</a>
       <span class="meta">EIN on request · Trials registered with ClinicalTrials.gov</span>
     </div>
   </section>
@@ -1588,7 +1631,7 @@ We also research them.</h2>
         <li><a href="contact.html">Location &amp; Contact</a></li>
         <li><a href="fda-guidelines.html">FDA Guidelines</a></li>
         <li><a href="index.html#conditions">Conditions</a></li>
-        <li><a href="#">Research Center</a></li>
+        <li><a href="https://www.boulderbiologics.org" target="_blank" rel="noopener">Research Center</a></li>
       </ul>
     </div>
     <div>
@@ -1596,17 +1639,17 @@ We also research them.</h2>
       <ul>
         <li><a href="#schedule">Schedule a Consultation</a></li>
         <li><a href="faq.html">FAQs</a></li>
-        <li><a href="#">Patient Portal</a></li>
-        <li><a href="#">FDA Guidelines</a></li>
+        <li><a href="https://mycw138.ecwcloud.com/portal19263/jsp/100mp/login_otp.jsp" target="_blank" rel="noopener">Patient Portal</a></li>
+        <li><a href="fda-guidelines.html">FDA Guidelines</a></li>
       </ul>
     </div>
   </div>
   <div class="site-footer__legal">
     <div>© 2026 Boulder Biologics, LLC · 4745 Arapahoe Ave, Suite 300, Boulder, CO 80303</div>
     <div style="display: flex; gap: 18px;">
-      <a href="#">Privacy</a>
-      <a href="#">HIPAA Notice</a>
-      <a href="#">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="hipaa.html">HIPAA Notice</a>
+      <a href="terms.html">Terms</a>
     </div>
   </div>
 </footer>
@@ -1629,6 +1672,6 @@ We also research them.</h2>
     });
   });
 </script>
-<script src="_nav.js" defer></script>
+  <script src="_nav.js" defer></script>
 </body>
 </html>

@@ -101,7 +101,10 @@ claude_code_handoff/
     ├── tbi-cte.html           ← Traumatic Brain Injury & CTE
     ├── medical-applications-other.html ← Other systemic conditions
     ├── facilities.html        ← Clinic / lab facilities
-    ├── condition.html         ← Dynamic conditions template (?c=knee|hip-back-si|shoulder|tendon-ligament|concussion-tbi|long-covid) — the 6 homepage condition cards link here
+    ├── knee-pain-arthritis.html       ← Condition: knee pain & arthritis
+    ├── hip-back-si-pain.html          ← Condition: hip, back & SI joint pain
+    ├── shoulder-rotator-cuff.html     ← Condition: shoulder & rotator cuff
+    ├── tendon-ligament-injuries.html  ← Condition: tendon & ligament injuries
     ├── jason-glowney-md.html  ← Physician bio (E-E-A-T page)
     ├── faq.html               ← FAQ
     ├── contact.html           ← Location & contact
@@ -109,7 +112,10 @@ claude_code_handoff/
     ├── learn.html             ← Patient education hub
     ├── is-stem-cell-therapy-fda-approved.html      ← explainer
     ├── autologous-vs-donor-derived-stem-cells.html ← explainer
-    └── mesenchymal-stromal-vs-stem-cells.html      ← explainer
+    ├── mesenchymal-stromal-vs-stem-cells.html      ← explainer
+    ├── hipaa.html             ← HIPAA notice (noindex)
+    ├── privacy.html           ← Privacy policy (noindex)
+    └── terms.html             ← Terms & conditions (noindex)
 ```
 
 Pages link to each other with relative URLs (e.g. `cellular-therapy.html`) and reference
@@ -188,8 +194,13 @@ This bundle is ready to publish at a repo root:
   `_learn-explainer.css` and leave every page unstyled. Keep this file.
 - **Root `index.html`** redirects `https://<user>.github.io/<repo>/` to `pages/index.html`
   (preserving any query/hash), so visitors landing at the root don't see a directory list.
-- The six homepage **condition cards** resolve to `pages/condition.html?c=<slug>` — that
-  file is included, so they no longer 404.
+- The six homepage **condition cards** now resolve to real static pages: the four
+  orthopedic conditions (`knee-pain-arthritis.html`, `hip-back-si-pain.html`,
+  `shoulder-rotator-cuff.html`, `tendon-ligament-injuries.html`) plus `tbi-cte.html`
+  (concussion/TBI) and `long-covid.html`. The old client-side `condition.html?c=<slug>`
+  template was removed for SEO — update any deploy `sitemap.xml` to add the four new
+  canonical URLs (`/knee-pain-arthritis`, `/hip-back-si-pain`, `/shoulder-rotator-cuff`,
+  `/tendon-ligament-injuries`) and drop `condition.html`.
 
 ## Suggested first steps for the developer
 

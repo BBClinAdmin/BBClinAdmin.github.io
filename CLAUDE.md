@@ -54,6 +54,18 @@ When the user asks for a content edit or sweep:
 
 ## Component conventions established
 
-- **Top navigation** (in every production page's `.site-header nav`) is, in order: Services · Conditions · Cellular Therapy · PRP · Longevity · Our Team · FDA Guidelines · FAQ. Footer "Clinic" column mirrors Our Team → FDA Guidelines → FAQ. New top-level pages should be added to every production page's nav at once.
+- **Top navigation** (in every production page's `.site-header nav`) is, in order: Services · Conditions · Our Team · Facilities · FDA Guidelines · Learn · FAQ, with the phone number and a teal **Contact** button on the right. (Cellular Therapy / PRP / Longevity were intentionally removed from the top bar — they remain in the footer; do not re-add them to the nav.) Footer "Clinic" column mirrors Our Team → FDA Guidelines → FAQ. New top-level pages should be added to every production page's nav at once — including the production-mirroring wireframes.
 - **Candidacy section** (`section` containing `.candidacy-grid`) uses two columns: `.cand-col.is-yes` (Likely a fit list) on the left, `.cand-col.is-cta` (navy CTA card with heading, body, Schedule + Call buttons) on the right. The standalone `.mid-cta` strip below the candidacy section has been removed across all pages — do not re-introduce it. CTA styles live in `pages/_v2-service.css` under `.cand-col.is-cta`.
 - **Wireframe versions** (`pages/wireframes/V2 Condition Overview.html` etc.) mirror the same pattern — keep in sync with the production pages.
+
+## Export / handoff checklist (GitHub Pages)
+
+Whenever I package the site for download or a Claude Code / GitHub Pages handoff, the bundle MUST include these or pages break on deploy:
+
+1. **`.nojekyll`** at the bundle root (empty file). Without it, GitHub Pages' Jekyll hides `_`-prefixed files, so `pages/_shared.css`, `_v2-service.css`, and `_learn-explainer.css` 404 and every page renders unstyled. This has bitten us twice.
+2. **Root `index.html`** that redirects `/` → `pages/index.html` (meta-refresh + `location.replace`, preserving `location.search + location.hash`). Otherwise the repo root shows a directory listing.
+3. **The six homepage condition cards now point to real static pages** (the old client-side `condition.html?c=<slug>` template was removed on 2026-06-02 for SEO — it had one shared URL/title and two H1s). The four orthopedic conditions are their own indexable pages with full SEO heads + JSON-LD: `pages/knee-pain-arthritis.html`, `pages/hip-back-si-pain.html`, `pages/shoulder-rotator-cuff.html`, `pages/tendon-ligament-injuries.html` (canonicals `/knee-pain-arthritis`, `/hip-back-si-pain`, `/shoulder-rotator-cuff`, `/tendon-ligament-injuries`). The concussion-tbi and long-covid cards point to the existing `tbi-cte.html` and `long-covid.html`. All six must ship or those cards 404; reconcile the deploy `sitemap.xml` to add the four new canonical URLs and drop `condition.html`.
+4. **Mirror the real `pages/` + `assets/` sibling layout** so relative paths (`../assets/...`, sibling `_*.css`) resolve. Exclude scratch: `_archive/`, `wireframes/`, `_image-inventory.html`, and the stale `design_handoff_boulder_biologics_site/` snapshot.
+5. **Replace remaining drag-drop image placeholders** (`data-img-id` slots) with real `<img>` from `assets/images/` for production, and **wire up the 301s in `REDIRECTS.md`**.
+
+The canonical, current package is `claude_code_handoff/` — reuse/refresh it rather than rebuilding from scratch.
