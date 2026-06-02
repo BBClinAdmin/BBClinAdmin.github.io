@@ -1,5 +1,20 @@
 # Handoff: Boulder Biologics Marketing Site
 
+> **Latest update — 2026-06-01.** Refreshed from production. Changes in this push:
+> - **Prolotherapy** (`pages/prolotherapy.html`): added the SI-joint step-by-step diagram
+>   (`assets/images/prolotherapy-si-steps.png`) in the "What a course of treatment looks like"
+>   section; removed the "Driving home" at-a-glance row. (The diagram art was corrected — the
+>   stray duplicate/misspelled "and Stabilituy" label was trimmed to "Restored Joint Stability".)
+> - **Contact** (`pages/contact.html`): Office-hours card restyled to match the contact card
+>   (white bg, mono label, 600 heading); contact + directions row labels switched from IBM Plex
+>   Mono to Montserrat (weight 500, sentence case); hours list constrained to a centered ~380px
+>   block; address block removed from hero; RTD link added to the Transit line.
+> - **Team** (`pages/jason-glowney-md.html`): restored "Apeiron / Boulder Biologics Research
+>   Center" in the Research Affiliation row.
+> - **Facilities** (`pages/facilities.html`): removed the "4 patient rooms" chip and the
+>   Logging / Self-attestation spec rows.
+> - **EPAT** (`pages/epat.html`): removed the "Driving home" fact row and the Manufacturer spec row.
+
 ## Overview
 
 A complete, multi-page marketing website for **Boulder Biologics**, a physician-led

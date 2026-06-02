@@ -77,8 +77,12 @@
   .svc-hero__grid { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: end; }
   .svc-hero .chips-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 22px 0 28px; }
   .svc-hero .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
-  .svc-hero__media { margin: 56px auto 0; max-width: var(--max); }
+  .svc-hero__media { margin: 0 auto; max-width: 620px; padding-top: 44px; border-top: 1px solid var(--rule-soft); }
   .svc-hero__media .img-slot { aspect-ratio: 16/9; }
+  .svc-hero__media figcaption {
+    font-family: var(--font-body); font-size: 13.5px; color: var(--muted);
+    margin: 12px 0 0; line-height: 1.5; font-style: italic; text-align: center;
+  }
 
   /* Lab photos · two stacked placeholders for the two-spin procedure */
   .lab-photos { display: grid; gap: 18px; }
@@ -168,7 +172,7 @@
       <div>
         <p class="eyebrow">Orthopedics · Autologous biologic therapy</p>
         <h1 class="h1">Platelet-Rich Plasma (PRP).</h1>
-        <p class="lede">An autologous biologic therapy derived from your own blood — a concentrated platelet fraction with associated growth factors and signaling proteins, delivered with image guidance to support endogenous repair of musculoskeletal tissues.</p>
+        <p class="lede">An autologous biologic therapy derived from your own blood with— a concentrated platelet fraction, associated growth factors, signaling proteins, and delivered with image guidance to support endogenous repair of musculoskeletal tissues.</p>
         <div class="chips-row">
           <span class="chip">Knee OA</span>
           <span class="chip">Rotator cuff</span>
@@ -188,17 +192,11 @@
         <div class="facts__row"><p class="facts__k">Procedure time</p><p class="facts__v is-num">10–30 min</p></div>
         <div class="facts__row"><p class="facts__k">Anesthesia</p><p class="facts__v">Local · awake</p></div>
         <div class="facts__row"><p class="facts__k">Imaging</p><p class="facts__v">Ultrasound · fluoroscopy</p></div>
-        <div class="facts__row"><p class="facts__k">Concentration</p><p class="facts__v is-num">4–7× platelets</p></div>
         <div class="facts__row"><p class="facts__k">Response window</p><p class="facts__v is-num">4–12 weeks</p></div>
-        <div class="facts__row"><p class="facts__k">Follow-up</p><p class="facts__v">6 &amp; 12 weeks</p></div>
-        <div class="facts__row"><p class="facts__k">Driving home</p><p class="facts__v">Yes</p></div>
         <div class="facts__cta">
           <a class="btn btn-accent" href="#schedule">Schedule a consultation</a>
         </div>
       </aside>
-    </div>
-    <div class="svc-hero__media">
-      <div class="img-slot" data-img-id="prp-hero" data-label="Hero · ultrasound-guided PRP injection · 16:9"></div>
     </div>
   </section>
 
@@ -250,6 +248,10 @@
           <p>Hand, wrist, ankle — discussed case-by-case.</p>
         </div>
       </div>
+      <figure class="svc-hero__media">
+        <div class="img-slot" data-img-id="prp-hero" data-label="Hero · ultrasound-guided PRP injection · 16:9"></div>
+        <figcaption>PRP delivered to the heel with ultrasound guidance.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -258,11 +260,11 @@
     <div class="inner">
       <div class="two-col is-balanced">
         <div>
-          <p class="eyebrow">What it is</p>
-          <h2 class="h2">What PRP actually is.</h2>
+          <p class="eyebrow">LEARN</p>
+          <h2 class="h2">What is PRP?</h2>
         </div>
         <div class="body-lg">
-          <p>PRP is prepared from your own blood. A controlled, multi-step centrifugation isolates a fraction with a <strong>4–7× platelet concentration</strong> along with associated growth factors and signaling proteins.</p>
+          <p>PRP is prepared from your own blood via a controlled, multi-step centrifugation process which increases platelet concentration along with associated growth factors and signaling proteins.</p>
           <p>The clinical effect is mediated by <strong>local biologic signaling</strong> — recruiting endogenous repair cascades, modulating inflammation, and supporting tissue remodeling. PRP is intended to modulate the local environment, not to replace damaged tissue or guarantee regeneration.</p>
           <p>PRP isn't a single product — it's a category. The relevant variables are platelet concentration, leukocyte content, red blood cell content, total volume, and any adjuncts. Each preparation is <strong>characterized in our lab</strong> so we know what we're delivering — and the recipe is tailored to your indication.</p>
         </div>
@@ -278,70 +280,41 @@
     </div>
   </section>
 
-  <!-- FORMULATIONS — page-specific ─────────────────────────────── -->
-  <section class="alt">
-    <div class="inner">
-      <p class="eyebrow">Formulation</p>
-      <h2 class="h2">How we tailor the preparation.</h2>
-      <p class="lede">The classification of every preparation follows the <strong>PAW</strong> and <strong>DEPA</strong> reporting frameworks used in the PRP literature. Each preparation is documented for platelet count, leukocyte content, and total volume.</p>
-      <div class="formulation-grid">
-        <div class="formulation-card">
-          <span class="tag">Leukocyte-poor</span>
-          <h3>Lp-PRP</h3>
-          <p>Lower-inflammatory profile preferred for intra-articular use in osteoarthritis.</p>
-          <span class="for">For: knee &amp; hip OA</span>
-        </div>
-        <div class="formulation-card">
-          <span class="tag">Leukocyte-rich</span>
-          <h3>Lr-PRP</h3>
-          <p>Higher-concentration formulation favored for tendon and ligament pathology.</p>
-          <span class="for">For: rotator cuff · epicondylitis · Achilles</span>
-        </div>
-        <div class="formulation-card">
-          <span class="tag">Low-density</span>
-          <h3>LD-PRP</h3>
-          <p>Lower platelet concentration for perineural and soft-tissue applications.</p>
-          <span class="for">For: hydrodissection · soft-tissue</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- PROCESS ──────────────────────────────────────────────────── -->
-  <section id="how">
+  <section id="how" class="alt">
     <div class="inner">
       <p class="eyebrow">The procedure, step by step</p>
-      <h2 class="h2">How the PRP procedure works.</h2>
+      <h2 class="h2">How the PRP visit works.</h2>
       <p class="lede">A controlled, multi-step laboratory process designed to concentrate platelets while preserving platelet integrity and biologic activity.</p>
       <div class="steps-h is-5" style="margin-top: 36px;">
         <div class="step">
           <span class="num">Step 01</span>
           <h3>Blood collection</h3>
           <p>Venous draw into anticoagulated tubes. Baseline platelet count documented before processing.</p>
-          <span class="meta">~5 min</span>
+          <span class="meta">~10 min</span>
         </div>
         <div class="step">
           <span class="num">Step 02</span>
           <h3>Plasma separation</h3>
           <p>First, low-force "soft spin" separates plasma from RBCs while preserving platelet integrity.</p>
-          <span class="meta">~10 min</span>
+          <span class="meta">~30 min</span>
         </div>
         <div class="step">
           <span class="num">Step 03</span>
           <h3>Platelet concentration</h3>
           <p>Second, higher-force "hard spin" pellets platelets. PPP removed; resuspended to target concentration.</p>
-          <span class="meta">~15 min</span>
+          <span class="meta">~30 min</span>
         </div>
         <div class="step">
           <span class="num">Step 04</span>
           <h3>Image-guided delivery</h3>
           <p>Dr. Glowney delivers with ultrasound or fluoroscopic guidance. Non-acidic, non-platelet-toxic anesthetics for comfort.</p>
-          <span class="meta">10–30 min</span>
+          <span class="meta">15–45 min</span>
         </div>
         <div class="step">
           <span class="num">Step 05</span>
           <h3>Biologic response</h3>
-          <p>Endogenous cascade unfolds over weeks. Functional follow-up at 6 &amp; 12 weeks; response reassessed at 12–16 weeks.</p>
+          <p>Endogenous cascade unfolds over weeks. Response reassessed at 12–16 weeks.</p>
           <span class="meta">Weeks–months</span>
         </div>
       </div>
@@ -349,25 +322,13 @@
   </section>
 
   <!-- LAB / DATA ────────────────────────────────────────────── -->
-  <section class="alt" id="lab">
+  <section id="lab">
     <div class="inner">
       <p class="eyebrow">On-site biologics lab</p>
       <h2 class="h2">Two-spin centrifugation, characterized on site.</h2>
       <p class="lede">Every preparation moves through two validated centrifugation steps and is characterized for platelet concentration and viability before delivery.</p>
-      <div class="two-col" style="margin-top: 32px;">
-        <div>
-          <div class="lab-box">
-            <div class="row"><span class="k">Source material</span><span class="v">Autologous venous blood</span></div>
-            <div class="row"><span class="k">Processing</span><span class="v">Validated two-spin protocol</span></div>
-            <div class="row"><span class="k">Platelet concentration</span><span class="v">4–7× baseline (indication-tuned)</span></div>
-            <div class="row"><span class="k">Classification framework</span><span class="v">PAW · DEPA reporting</span></div>
-            <div class="row"><span class="k">Volume</span><span class="v">Indication-driven</span></div>
-            <div class="row"><span class="k">Delivery window</span><span class="v">Same-day, same-visit</span></div>
-            <div class="row"><span class="k">Sterility</span><span class="v">Biosafety cabinet · closed-system · single-use</span></div>
-          </div>
-        </div>
-        <div class="lab-photos">
-          <figure>
+      <div class="lab-photos" style="grid-template-columns: 1fr 1fr; margin-top: 32px;">
+        <figure>
             <div class="img-slot" data-img-id="prp-spin-01" data-label="First spin · separated layers (plasma / buffy coat / red cells) · 4:3"></div>
             <figcaption>
               <span class="lab-photos__num">01</span>
@@ -381,14 +342,13 @@
               Second spin — the platelet pellet collects at the base of the tube. PPP is removed and the pellet resuspended to the target concentration.
             </figcaption>
           </figure>
-        </div>
       </div>
       <p style="font-family: var(--font-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.04em; margin: 28px 0 0; padding-top: 18px; border-top: 1px solid var(--rule-soft);">Want the full equipment list, cleanroom qualification details, and sample chain of custody? <a href="facilities.html#lab" style="color: var(--brand-primary); font-weight: 600;">See our facilities &amp; biologics lab →</a></p>
     </div>
   </section>
 
   <!-- CANDIDACY ────────────────────────────────────────────── -->
-  <section>
+  <section class="alt">
     <div class="inner">
       <p class="eyebrow">Is this you?</p>
       <h2 class="h2">When PRP is the right starting point.</h2>
@@ -418,7 +378,7 @@
   </section>
 
   <!-- FAQ ─────────────────────────────────────────────────────── -->
-  <section class="alt" id="faq">
+  <section id="faq">
     <div class="inner">
       <p class="eyebrow" style="text-align: center;">PRP, answered</p>
       <h2 class="h2" style="text-align: center;">Questions we hear most often.</h2>
@@ -459,7 +419,7 @@
   </section>
 
   <!-- REFERENCES ─────────────────────────────────────────────── -->
-  <section class="refs">
+  <section class="refs alt">
     <div class="inner">
       <p class="eyebrow">Selected references</p>
       <h2 class="h2">What the literature says.</h2>
@@ -476,7 +436,7 @@
   </section>
 
   <!-- RELATED ────────────────────────────────────────────────── -->
-  <section class="alt">
+  <section>
     <div class="inner">
       <p class="eyebrow">Related therapies</p>
       <h2 class="h2">Where PRP fits in the broader practice.</h2>

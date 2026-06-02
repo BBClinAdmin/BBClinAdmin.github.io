@@ -283,20 +283,10 @@
     background: var(--paper-2); border: 1px solid var(--rule);
     border-radius: var(--r-lg); min-height: 360px;
     position: relative; overflow: hidden;
-    display: flex; align-items: flex-end; padding: 18px;
   }
-  .map-slot::before {
-    content: ''; position: absolute; inset: 16px;
-    border: 1px dashed var(--bb-stone-300); border-radius: 6px;
-    background:
-      repeating-linear-gradient(0deg, transparent 0 40px, rgba(0,0,0,0.04) 40px 41px),
-      repeating-linear-gradient(90deg, transparent 0 40px, rgba(0,0,0,0.04) 40px 41px);
-  }
-  .map-slot::after {
-    content: 'Map placeholder · 4745 Arapahoe Ave, Suite 300 · Boulder, CO';
-    position: relative;
-    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--muted);
-    background: rgba(255,255,255,0.9); padding: 5px 9px; border-radius: 4px;
+  .map-slot iframe {
+    display: block; width: 100%; height: 100%;
+    position: absolute; inset: 0; border: 0;
   }
 
   /* Equipment cards · hover to flip and reveal photo */
@@ -389,10 +379,9 @@
     <div class="facility-hero__grid">
       <div>
         <p class="eyebrow">Inside Boulder Biologics</p>
-        <h1 class="h1">A working clinic and an on-site biologics lab in one suite.</h1>
-        <p class="lede">Our clinic is at the Boulder Community Health Foothills Campus and is sized for one purpose: <strong>same-day, same-visit autologous therapy</strong> where your sample never leaves the suite.</p>
+        <h1 class="h1">A clinic and an on-site biologics lab in one suite.</h1>
+        <p class="lede">Our clinic is at the Boulder Community Health Foothills Campus and is built for one purpose: same-day, same-visit autologous therapy where your sample never leaves the suite.</p>
         <div class="meta-row">
-          <span class="chip">4 patient rooms</span>
           <span class="chip">Image-guided procedure room</span>
           <span class="chip">On-site biologics lab</span>
           <span class="chip">Cleanroom-standard processing</span>
@@ -442,11 +431,11 @@
   <section id="procedure">
     <div class="inner">
       <p class="eyebrow">Procedure room</p>
-      <h2 class="h2">The room where harvests and image-guided delivery happen.</h2>
+      <h2 class="h2">Where harvests and image-guided delivery happen.</h2>
 
       <div class="feature-room">
         <div>
-          <p class="body-lg">A dedicated procedure room with sterile prep, point-of-care ultrasound, and the working space for both marrow aspiration and image-guided concentrate delivery. Most procedures stay in this room from prep through delivery — minimizing transfers and keeping the visit on one floor.</p>
+          <p class="body-lg">A dedicated procedure room with sterile prep, point-of-care ultrasound, C-arm fluoroscopy, and the working space for both marrow aspiration and image-guided concentrate delivery. This room also features ISO-compliant HEPA filtration, one-way airflow, and robust environmental monitoring systems. </p>
           <ul class="bullets" style="margin-top: 12px;">
             <li>Sterile field for marrow aspiration and image-guided injection</li>
             <li>Point-of-care ultrasound for real-time soft-tissue, joint, and PSIS visualization</li>
@@ -467,14 +456,14 @@
     <div class="inner">
       <p class="eyebrow">The biologics lab</p>
       <h2 class="h2">On-site processing, end to end.</h2>
-      <p class="lede">A working biologics laboratory inside the clinic. Density-gradient separation, characterization, and sterility checks happen in the same suite as the procedure — so the sample is processed and returned within a single visit.</p>
+      <p class="lede">A biologics laboratory inside the clinic. Density-gradient separation, characterization, and sterility checks happen in the same suite as the procedure — so the sample is processed and returned within a single visit in a space with a highly controlled &amp; monitored environment. </p>
 
       <div class="feature-room flip">
         <div>
           <div class="img-slot" data-img-id="facilities-lab" data-label="On-site biologics lab · processing bay · 5:4"></div>
         </div>
         <div>
-          <p class="body-lg">Every clinical preparation — PRP, bone-marrow concentrate, adjunct biologics — moves through the same standardized workflow under our processing protocols. The lab is purpose-built for autologous, minimally-manipulated biologics: short residence time, closed-system kits, and characterization that runs alongside the procedure.</p>
+          <p class="body-lg">Every clinical preparation — PRP, bone-marrow concentrate, adjunct biologics — moves through a standardized workflow under our processing protocols. The lab is purpose-built for autologous, minimally-manipulated biologics: short residence time, closed-system kits, and characterization that runs alongside the procedure.</p>
           <p class="specs">Featured throughput: two-spin PRP · density-gradient bone marrow concentrate · selected adipose work · MSC enumeration by flow cytometry where appropriate.</p>
         </div>
       </div>
@@ -578,17 +567,15 @@
       <div class="clean">
         <div>
           <p class="eyebrow">Cleanroom-standard facility</p>
-          <h2>FDA-regulated partners qualify our facility — not us.</h2>
-          <p>Our laboratory and procedure spaces are built and audited to <strong>cleanroom standards</strong>, with facility qualification performed by FDA-regulated partners. It's not a self-attestation; it's an outside audit performed against the same engineering standards used in regulated biologics environments.</p>
-          <p>Particle counts and environmental monitoring run on the lab floor — they're how we confirm those rooms are operating at the standard they were qualified to, not just on the day it was built.</p>
+          <h2>Sterility &amp; Safety are #1</h2>
+          <p>Our laboratory and procedure spaces are built and audited to cleanroom standards. </p>
+          <p>Particle counters and environmental monitoring run constantly throughout our clinical space — but they're just one way we confirm those rooms are operating at our standards. We also re-validate the space to ensure our cleaning protocols are working to prevent any contamination. </p>
         </div>
         <div class="clean-specs" aria-label="Cleanroom specifications">
-          <div class="row"><span class="k">Build standard</span><span class="v">Cleanroom-engineered enclosure</span></div>
-          <div class="row"><span class="k">Qualification</span><span class="v">FDA-regulated partner audit</span></div>
+          <div class="row"><span class="k">Build standard</span><span class="v">ISO-8 Cleanroom</span></div>
+          <div class="row"><span class="k">Qualification</span><span class="v">per FDA regulations</span></div>
           <div class="row"><span class="k">Re-qualification</span><span class="v">Routine, documented</span></div>
-          <div class="row"><span class="k">Monitoring</span><span class="v">Particle counts · environmental</span></div>
-          <div class="row"><span class="k">Logging</span><span class="v">Per-preparation &amp; per-shift</span></div>
-          <div class="row"><span class="k">Self-attestation</span><span class="v">Not used</span></div>
+          <div class="row"><span class="k">Monitoring</span><span class="v">Constantly monitored, logged, and audited </span></div>
         </div>
       </div>
     </div>
@@ -709,6 +696,45 @@
       </div>
 
       <p style="font-family: var(--font-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.04em; margin-top: 24px; max-width: 70ch;">For the full FDA-aligned terminology and regulatory posture, see our <a href="fda-guidelines.html" style="color: var(--brand-primary);">FDA Guidelines</a> page.</p>
+    </div>
+  </section>
+
+  <!-- LOCATION ──────────────────────────────────────────────── -->
+  <section id="location">
+    <div class="inner">
+      <p class="eyebrow">Visit us</p>
+      <h2 class="h2">Where to find us.</h2>
+      <p class="lede">Boulder Biologics is on the Boulder Community Health Foothills Campus, just off Arapahoe Avenue. Free surface parking is available at the building.</p>
+
+      <div class="loc-grid">
+        <div class="loc-card">
+          <h3>Boulder Biologics</h3>
+          <p class="addr">
+            4745 Arapahoe Ave, Ste 300<br />
+            Boulder, CO 80303
+          </p>
+          <dl>
+            <dt>Campus</dt>
+            <dd>BCH Foothills Campus</dd>
+            <dt>Phone</dt>
+            <dd><a class="addr" href="tel:+17205506175">720-550-6175</a></dd>
+            <dt>Parking</dt>
+            <dd>Free surface parking on site</dd>
+          </dl>
+          <div class="loc-card__actions">
+            <a class="btn btn-primary btn-sm" href="https://www.google.com/maps/dir/?api=1&amp;destination=4745+Arapahoe+Ave+Suite+300+Boulder+CO+80303" target="_blank" rel="noopener">Get directions →</a>
+            <a class="btn btn-outline btn-sm" href="tel:+17205506175">Call the clinic</a>
+          </div>
+        </div>
+        <div class="map-slot">
+          <iframe
+            title="Map to Boulder Biologics, 4745 Arapahoe Ave Ste 300, Boulder, CO 80303"
+            src="https://www.google.com/maps?q=4745+Arapahoe+Ave+Suite+300+Boulder+CO+80303&amp;output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
+      </div>
     </div>
   </section>
 

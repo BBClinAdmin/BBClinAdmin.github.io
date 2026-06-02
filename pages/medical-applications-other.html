@@ -116,8 +116,9 @@
   .reg ul { padding: 0 0 0 18px; margin: 0 0 12px; }
   .reg strong { color: var(--ink); font-weight: 600; }
 
-  .refs ol { font-family: var(--font-body); font-size: 13.5px; color: var(--ink-2); line-height: 1.6; padding-left: 22px; margin: 24px 0 0; max-width: 80ch; }
-  .refs ol li { margin: 0 0 10px; }
+  .refs ol { font-family: var(--font-body); font-size: 13.5px; color: var(--ink-2); line-height: 1.6; list-style: none; counter-reset: ref; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 64px; padding: 0; margin: 24px 0 0; max-width: none; }
+  .refs ol li { counter-increment: ref; position: relative; padding-left: 30px; margin: 0; }
+  .refs ol li::before { content: counter(ref) "."; position: absolute; left: 0; top: 1px; font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
   .refs ol li em { color: var(--muted); }
 
   .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
@@ -139,7 +140,7 @@
 
   @media (max-width: 960px) {
     .svc-hero__grid { grid-template-columns: 1fr; gap: 32px; }
-    .sys-grid, .mech-3, .related-grid { grid-template-columns: 1fr; }
+    .sys-grid, .mech-3, .related-grid, .refs ol { grid-template-columns: 1fr; }
     .reg { padding: 24px; }
   }
 </style>
@@ -182,8 +183,8 @@
     <div class="svc-hero__grid">
       <div>
         <p class="eyebrow">Medical applications · investigational</p>
-        <h1 class="h1">Autologous biologic therapy and other medical conditions.</h1>
-        <p class="lede">An investigational, patient-derived procedure for selected adults with pulmonary, cardiac, gastrointestinal, or neurological conditions where persistent inflammation, immune dysregulation, or impaired tissue repair are believed to contribute to ongoing symptoms. Sometimes searched as stem cell therapy for these conditions; clinically, the biologic material is autologous mesenchymal stromal cell–containing bone marrow aspirate, not a manufactured stem cell product.</p>
+        <h1 class="h1">Autologous biologic therapies for other medical conditions.</h1>
+        <p class="lede">An investigational, patient-derived procedure for selected adults with pulmonary, cardiac, gastrointestinal, or neurological conditions where persistent inflammation, immune dysregulation, or impaired tissue repair are believed to contribute to ongoing symptoms. </p>
         <div class="chips-row">
           <span class="chip">Pulmonary</span>
           <span class="chip">Cardiac</span>
@@ -231,7 +232,7 @@
       </div>
 
       <p class="eyebrow" style="margin-top: 56px;">Shared biology</p>
-      <h2 class="h2">Three mechanisms recur across organ systems.</h2>
+      <h2 class="h2">Three recurring mechanisms .</h2>
       <p class="lede">Across diverse organ systems, many chronic conditions share overlapping biological mechanisms.</p>
 
       <div class="mech-3">
@@ -302,7 +303,7 @@
       <h2 class="h2">Paracrine signaling — not differentiation into mature cells.</h2>
       <div class="two-col is-balanced" style="margin-top: 24px;">
         <div class="body-lg">
-          <p>Mesenchymal stromal cells (MSCs) are non-hematopoietic cells found in bone marrow and other tissues. In line with current scientific consensus and FDA-aligned language, <strong>their primary in vivo activity is paracrine and immunomodulatory</strong>, rather than direct differentiation into mature organ-specific cells.</p>
+          <p>Mesenchymal stromal cells (MSCs) are non-hematopoietic cells found in bone marrow and other tissues. In line with current scientific consensus and FDA-aligned language, <strong>their primary activity in the body is paracrine and immunomodulatory</strong>, rather than direct differentiation into mature organ-specific cells.</p>
           <p>Claims that MSCs reliably transform into functional cardiomyocytes, neurons, hepatocytes, or other mature cells in humans are not supported by clinical evidence and are intentionally avoided.</p>
         </div>
         <div>
@@ -321,8 +322,8 @@
   <!-- PROCEDURE ─────────────────────────────────────────────── -->
   <section id="how">
     <div class="inner">
-      <p class="eyebrow">How the procedure works</p>
-      <h2 class="h2">Autologous bone marrow–derived procedure.</h2>
+      <p class="eyebrow">WHAT TO EXPECT</p>
+      <h2 class="h2">How the procedure works</h2>
       <p class="lede">This investigational approach is consistent with our CNS and Long COVID programs. No donor cells, no culture expansion, no genetic modification, no manufactured cellular products.</p>
       <div class="steps-h is-5" style="margin-top: 36px;">
         <div class="step">
@@ -335,7 +336,7 @@
           <span class="num">Step 02</span>
           <h3>Bone marrow aspiration</h3>
           <p>From the posterior superior iliac spine (PSIS) under local anesthesia and image guidance.</p>
-          <span class="meta">~20–30 min</span>
+          <span class="meta">~30–60 min</span>
         </div>
         <div class="step">
           <span class="num">Step 03</span>
@@ -359,17 +360,32 @@
     </div>
   </section>
 
-  <!-- SAFETY ─────────────────────────────────────────────────── -->
+  <!-- SAFETY / EVIDENCE ─────────────────────────────────────── -->
   <section class="alt">
     <div class="inner">
-      <p class="eyebrow">Safety considerations</p>
-      <h2 class="h2">How we frame safety.</h2>
-      <ul class="bullets" style="margin-top: 18px; max-width: 70ch;">
-        <li>Autologous biologics reduce the immune-rejection risks associated with donor-derived products.</li>
-        <li>Published studies suggest acceptable short-term safety, but long-term efficacy is unknown.</li>
-        <li>Clinical response is variable, and some patients may experience no benefit.</li>
-        <li>Only autologous material is used. Patients are carefully screened. Therapy is presented as <strong>experimental supportive care, not curative treatment</strong>.</li>
-      </ul>
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">Safety considerations</p>
+          <h2 class="h2">How we frame safety</h2>
+          <ul class="bullets" style="margin-top: 18px;">
+            <li>Autologous biologics reduce the immune-rejection risks associated with donor-derived products.</li>
+            <li>Published studies suggest acceptable short-term safety, but long-term efficacy is unknown.</li>
+            <li>Clinical response is variable, and some patients may experience no benefit.</li>
+            <li>Patients are carefully screened. </li>
+          </ul>
+        </div>
+        <div>
+          <p class="eyebrow">Current evidence</p>
+          <h2 class="h2">Outcome expectations</h2>
+          <p class="body-lg" style="margin-top: 18px;">Evidence for MSC-based biologics across these organ systems is preliminary and varies condition by condition, derived largely from laboratory work, small human studies, and reviews that also note inconsistent outcomes. This treatment is experimental supportive care — not disease-modifying therapy.</p>
+          <p class="body-lg">The strength of the evidence differs from one condition to the next. As a general matter:</p>
+          <ul class="bullets">
+            <li>Results are inconsistent and condition-dependent.</li>
+            <li>Controlled trials are limited or still ongoing for most indications.</li>
+            <li>No therapy here is proven to cure, halt, or reverse the underlying disease.</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -407,9 +423,8 @@
   <!-- REGULATORY DISCLOSURE — verbatim ──────────────────────── -->
   <section id="reg" class="alt">
     <div class="inner">
-      <p class="eyebrow">FDA regulatory disclosure</p>
-      <h2 class="h2">What we say — and what we do not say.</h2>
-      <p class="lede">Verbatim regulatory framing from our live patient site.</p>
+      <p class="eyebrow">WE WANT TO BE CLEAR</p>
+      <h2 class="h2">FDA Regulatory Disclosure</h2>
 
       <div class="reg">
         <h3>Regulatory status</h3>

@@ -113,6 +113,23 @@
     color: var(--ink); margin: 0;
   }
 
+  /* ISCT minimal criteria — numbered list */
+  .isct-crit { list-style: none; counter-reset: crit; padding: 0; margin: 4px 0 28px; display: grid; gap: 10px; }
+  .isct-crit li {
+    counter-increment: crit;
+    display: grid; grid-template-columns: 26px 1fr; gap: 14px; align-items: start;
+    padding: 16px 18px; background: var(--white); border: 1px solid var(--rule);
+    border-radius: var(--r-md); font-size: 15px; line-height: 1.55; color: var(--ink-2);
+  }
+  .isct-crit li::before {
+    content: counter(crit);
+    font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+    color: var(--brand-accent-dim); background: var(--bb-teal-100);
+    width: 26px; height: 26px; border-radius: 999px;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .isct-crit strong { color: var(--ink); font-weight: 600; }
+
   /* MSC defining markers chip row */
   .markers { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 32px; }
   .markers .chip-pos { background: var(--bb-teal-100); color: var(--brand-accent-dim); border-color: var(--bb-teal-200); }
@@ -166,6 +183,10 @@
     min-height: 220px;
   }
   .figure .figure-num { color: var(--ink); font-weight: 600; }
+  .figure-cap {
+    font-family: var(--font-mono); font-size: 11px; color: var(--muted);
+    letter-spacing: 0.04em; line-height: 1.55; margin: -14px 0 24px;
+  }
 
   /* References */
   .refs ol { font-family: var(--font-body); font-size: 13px; color: var(--ink-2); line-height: 1.55; padding-left: 22px; margin: 24px 0 0; }
@@ -223,7 +244,7 @@
 <nav class="crumbs" aria-label="Breadcrumb">
   <a href="index.html">Home</a>
   <span class="sep">›</span>
-  <a href="index.html#services">Medical Applications</a>
+  <a href="learn.html">Learn</a>
   <span class="sep">›</span>
   <span class="cur">Mesenchymal Stromal Cells (MSCs)</span>
 </nav>
@@ -236,7 +257,7 @@
       <div>
         <p class="eyebrow">The science behind our services</p>
         <h1 class="h1">Mesenchymal Stromal Cells (MSCs).</h1>
-        <p class="lede">A clinician-leaning overview of the cell biology underlying autologous bone-marrow–derived therapies — definitions, cell-size and the first-pass effect, allogeneic immunogenicity, extracellular vesicles, senescence, and the blood–brain barrier.</p>
+        <p class="lede">An overview of the cell biology underlying autologous bone-marrow–derived therapies — definitions, cell-size and the first-pass effect, allogeneic immunogenicity, extracellular vesicles, senescence, and the blood–brain barrier.</p>
         <p class="byline"><a href="jason-glowney-md.html" style="color: inherit; text-decoration: none; border-bottom: 1px dotted currentColor;">Jason Glowney, MD, MSc</a> · Cellular Therapies — Science-to-Therapeutic Application</p>
       </div>
       <aside class="toc-card" aria-label="Sections on this page">
@@ -260,10 +281,16 @@
     <section id="definition" class="alt">
       <div class="inner">
         <p class="eyebrow">01 · Definition</p>
-        <h2 class="h2">What MSCs are — and aren't.</h2>
+        <h2 class="h2">MSC Classification</h2>
         <div class="body-lg">
-          <p>Mesenchymal stem cells (MSCs) are classified by cell source — bone marrow–derived (BM-MSCs), adipose-derived (ASCs), and umbilical cord MSCs. The <em>International Society for Cellular Therapy</em> (ISCT) Mesenchymal and Tissue Stem Cell Committee defines them by a consistent surface-marker phenotype:</p>
+          <p>The International Society for Cellular Therapy (ISCT) Mesenchymal and Tissue Stem Cell Committee defines mesenchymal stem cells by three minimal criteria. A cell population must meet all three to be classified as MSCs:</p>
         </div>
+
+        <ol class="isct-crit" aria-label="ISCT minimal criteria for MSCs">
+          <li><span><strong>Plastic adherence.</strong> The cells must adhere to plastic under standard culture conditions.</span></li>
+          <li><span><strong>Tri-lineage differentiation.</strong> When stimulated in the laboratory, the cells must be able to differentiate into bone (osteoblasts), fat (adipocytes), and cartilage (chondroblasts).</span></li>
+          <li><span><strong>Surface-marker expression.</strong> The cells must express a specific surface-marker phenotype — positive for CD105, CD73, and CD90; negative for CD45, CD34, CD14, CD19, and HLA-DR (detailed below).</span></li>
+        </ol>
 
         <div class="markers" aria-label="ISCT defining surface markers">
           <span class="label">Positive</span>
@@ -279,7 +306,7 @@
         </div>
 
         <div class="body-lg">
-          <p>Regardless of source, CD105, CD73, and CD90 are expressed on virtually all mesenchymal stem cells. MSCs are <strong>multipotent spindle-shaped cells with self-renewal capacities</strong> that can differentiate into related cell types <em>in vitro</em> or by transplantation.<span class="cite-inline">1</span></p>
+          <p>MSCs are further classified by cell source — bone marrow–derived (BM-MSCs), adipose-derived (AD-MSCs), and umbilical cord MSCs (UC-MSCs). Regardless of source, CD105, CD73, and CD90 are expressed on virtually all mesenchymal stem cells. MSCs are <strong>multipotent spindle-shaped cells with self-renewal capacities</strong> that can differentiate into related cell types <em>in vitro</em> or by transplantation.<span class="cite-inline">1</span></p>
           <p>More recently, it has been found that MSCs play a more significant role in producing <strong>regenerative and immunomodulatory elements</strong> under normal conditions, as opposed to differentiation <em>in vivo</em>.<span class="cite-inline">2</span></p>
         </div>
 
@@ -292,6 +319,7 @@
           <span class="figure-num">Figure 1 · phase-contrast microscopy</span>
           <span>Solitary spindle-shaped MSC in culture · placeholder</span>
         </div>
+        <p class="figure-cap">Figure 1 · Spindle shaped, plastic-adherent MSCs in a cultured laboratory environment.</p>
       </div>
     </section>
 
@@ -318,15 +346,15 @@
           </thead>
           <tbody>
             <tr><td>Endogenous BM-MSC (reference)</td><td class="num">~10 µm</td><td>Below — navigates capillary bed</td></tr>
-            <tr><td>Undifferentiated AD-SC</td><td class="num">~14.9 µm</td><td>At upper end of capillary bed</td></tr>
-            <tr><td>Differentiated / activated AD-SC</td><td class="num">↑ with culture days</td><td>Above — first-pass trapping likely</td></tr>
+            <tr><td>Undifferentiated AD-MSC</td><td class="num">~14.9 µm</td><td>At upper end of capillary bed</td></tr>
+            <tr><td>Differentiated / activated AD-MSC</td><td class="num">↑ with culture days</td><td>Above — first-pass trapping likely</td></tr>
             <tr><td>Low-serum cultured BM-hMSC (Bhat 2021)</td><td class="num">16.0–19.2 µm</td><td>Above — first-pass trapping likely</td></tr>
           </tbody>
         </table>
 
         <div class="defn">
           <p class="lbl">Clinical implication</p>
-          <p>From the standpoint of pulmonary capillary diameters and trapping-associated first-pass effect, <strong>undifferentiated BM-MSCs are the logical choice for IV-infusion–based treatments</strong>. Therapeutic ADSCs and differentiated BM-MSCs are best reserved for a localized, targeted approach to the desired tissues.</p>
+          <p>From the standpoint of pulmonary capillary diameters and trapping-associated first-pass effect, undifferentiated BM-MSCs are the logical choice for IV-infusion–based treatments. Therapeutic AD-MSCs and differentiated BM-MSCs are best reserved for a localized, targeted approach to the desired tissues.</p>
         </div>
       </div>
     </section>

@@ -66,6 +66,13 @@
     font-family: var(--font-body); font-size: 13.5px; color: var(--ink-2); line-height: 1.5;
   }
   .invest-strip strong { color: var(--ink); font-weight: 600; }
+
+  /* Inline text link — teal, underline on hover */
+  .inline-link {
+    color: var(--brand-primary); font-weight: 600;
+    text-decoration: none; white-space: nowrap;
+  }
+  .inline-link:hover { text-decoration: underline; }
   .invest-strip .pip {
     flex: 0 0 auto; width: 22px; height: 22px; border-radius: 999px;
     background: var(--bb-teal-100); color: var(--brand-accent-dim);
@@ -102,8 +109,9 @@
   .reg strong { color: var(--ink); font-weight: 600; }
 
   /* References — compact ordered list */
-  .refs ol { font-family: var(--font-body); font-size: 13.5px; color: var(--ink-2); line-height: 1.6; padding-left: 22px; margin: 24px 0 0; max-width: 80ch; }
-  .refs ol li { margin: 0 0 10px; }
+  .refs ol { font-family: var(--font-body); font-size: 13.5px; color: var(--ink-2); line-height: 1.6; list-style: none; counter-reset: ref; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 64px; padding: 0; margin: 24px 0 0; max-width: none; }
+  .refs ol li { counter-increment: ref; position: relative; padding-left: 30px; margin: 0; }
+  .refs ol li::before { content: counter(ref) "."; position: absolute; left: 0; top: 1px; font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
   .refs ol li em { color: var(--muted); }
 
   /* Related grid (same as cellular-therapy.html) */
@@ -126,7 +134,7 @@
 
   @media (max-width: 960px) {
     .svc-hero__grid { grid-template-columns: 1fr; gap: 32px; }
-    .mech-3, .related-grid { grid-template-columns: 1fr; }
+    .mech-3, .related-grid, .refs ol { grid-template-columns: 1fr; }
     .reg { padding: 24px; }
   }
 </style>
@@ -170,7 +178,7 @@
       <div>
         <p class="eyebrow">Medical applications · investigational</p>
         <h1 class="h1">Autologous biologic therapy and Long COVID.</h1>
-        <p class="lede">An investigational, patient-derived biologic procedure for selected adults with persistent post-COVID symptoms — autologous bone marrow material, delivered intravenously and, in selected cases, intranasally. Sometimes searched as Long COVID stem cell therapy; clinically, the biologic material is autologous mesenchymal stromal cell–containing bone marrow aspirate, not a manufactured stem cell product.</p>
+        <p class="lede">Autologous bone marrow concentrate is an investigational, patient-derived biologic procedure for selected adults with persistent post-COVID symptoms. Delivered intravenously and, in selected cases, intranasally, BMAC may help alleviate symptoms of Long COVID. </p>
         <div class="chips-row">
           <span class="chip">Persistent fatigue</span>
           <span class="chip">Brain fog / cognitive symptoms</span>
@@ -212,13 +220,13 @@
           <h2 class="h2">A patient-derived approach to post-COVID conditions.</h2>
         </div>
         <div class="body-lg">
-          <p>Boulder Biologics offers investigational autologous biologic procedures for selected individuals experiencing persistent symptoms following SARS-CoV-2 infection, commonly referred to as Post-COVID Conditions or Long COVID. These procedures utilize <strong>patient-derived bone marrow–based cellular and plasma components</strong> and are intended to support recovery through immunomodulatory and reparative signaling mechanisms, rather than through direct tissue replacement.</p>
-          <p>Post-COVID conditions remain an active area of scientific investigation. While no cellular therapy has been approved by the U.S. Food and Drug Administration (FDA) for Long COVID, emerging translational and early clinical literature support further study of autologous mesenchymal stromal cell–containing biologics in this context.</p>
+          <p>Boulder Biologics offers investigational autologous biologic procedures for selected individuals experiencing persistent symptoms following SARS-CoV-2 infection, commonly referred to as Post-COVID Conditions or Long COVID. These procedures are intended to support recovery through immunomodulatory and reparative signaling mechanisms, rather than through direct tissue replacement.</p>
+          <p>Post-COVID conditions remain an active area of scientific investigation. While no cellular therapy has been approved by the U.S. Food and Drug Administration (FDA) for Long COVID, emerging translational and early clinical literature support further study of autologous mesenchymal stromal cell–containing biologics in this context. <a class="inline-link" href="#references">See the selected literature ↓</a></p>
         </div>
       </div>
 
       <p class="eyebrow" style="margin-top: 56px;">Biological features of post-COVID conditions</p>
-      <h2 class="h2">A heterogeneous syndrome — three recurring features.</h2>
+      <h2 class="h2">Multiple Causes, but three common features.</h2>
       <p class="lede">Current evidence suggests Long COVID is a heterogeneous syndrome with several recurring biological features, rather than a single disease entity.</p>
 
       <div class="mech-3">
@@ -263,16 +271,17 @@
   <section>
     <div class="inner">
       <p class="eyebrow">About the biology</p>
-      <h2 class="h2">Mesenchymal stromal cell–containing biologics.</h2>
+      <h2 class="h2">Mesenchymal stromal cell (MSC)–containing biologics.</h2>
       <div class="two-col is-balanced" style="margin-top: 24px;">
         <div class="body-lg">
           <p>Mesenchymal stromal cells (MSCs) are non-hematopoietic cells found in bone marrow and other tissues. Importantly, <strong>current scientific consensus emphasizes that their clinical activity is primarily mediated by paracrine signaling and immune modulation</strong>, rather than by differentiation into organ-specific cells.</p>
-          <p>Claims of routine in vivo differentiation into neurons, cardiomyocytes, or other mature tissues are not supported in clinical human data and are avoided here.</p>
+          <p>
+</p>
         </div>
         <div>
           <div class="lab-box">
             <div class="row"><span class="k">Mechanism</span><span class="v">Paracrine signaling · immune modulation</span></div>
-            <div class="row"><span class="k">Property 1</span><span class="v">Immunomodulation (T cells, NK cells, macrophages)</span></div>
+            <div class="row"><span class="k">Property 1</span><span class="v">Immunomodulation of T cells, NK cells, macrophages</span></div>
             <div class="row"><span class="k">Property 2</span><span class="v">Anti-inflammatory signaling</span></div>
             <div class="row"><span class="k">Property 3</span><span class="v">Support of tissue repair environments</span></div>
             <div class="row"><span class="k">Property 4</span><span class="v">Endothelial &amp; microvascular support</span></div>
@@ -281,7 +290,7 @@
       </div>
 
       <p class="eyebrow" style="margin-top: 56px;">Rationale</p>
-      <h2 class="h2">Why investigators are studying MSC-containing biologics here.</h2>
+      <h2 class="h2">Why investigators are studying MSC-containing biologics.</h2>
       <div class="two-col" style="margin-top: 24px;">
         <div class="body-lg">
           <h3 class="h3">Immune system modulation.</h3>
@@ -305,13 +314,13 @@
   <!-- PROCEDURE ─────────────────────────────────────────────── -->
   <section class="alt" id="how">
     <div class="inner">
-      <p class="eyebrow">How the procedure works</p>
-      <h2 class="h2">What an autologous bone marrow–derived procedure involves.</h2>
+      <p class="eyebrow">WHAT TO EXPECT</p>
+      <h2 class="h2">How the procedure works</h2>
       <p class="lede">An investigational, in-clinic procedure. No donor cells, no genetic modification, no culture expansion.</p>
       <div class="steps-h is-5" style="margin-top: 36px;">
         <div class="step">
           <span class="num">Step 01</span>
-          <h3>Multi-visit workup</h3>
+          <h3>Consultation</h3>
           <p>Symptom timeline, longitudinal labs, imaging review, and outside-cause exclusion before any procedure.</p>
           <span class="meta">Pre-treatment</span>
         </div>
@@ -319,24 +328,24 @@
           <span class="num">Step 02</span>
           <h3>Bone marrow aspiration</h3>
           <p>From the posterior superior iliac spine (PSIS) under local anesthesia and image guidance.</p>
-          <span class="meta">~20–30 min</span>
+          <span class="meta">~30-60 min</span>
         </div>
         <div class="step">
           <span class="num">Step 03</span>
           <h3>Filtration &amp; minimal processing</h3>
           <p>Bone marrow aspirate is filtered and minimally processed in our on-site lab; cellular components may be concentrated.</p>
-          <span class="meta">Same-day</span>
+          <span class="meta">~1-2 hrs</span>
         </div>
         <div class="step">
           <span class="num">Step 04</span>
-          <h3>Autologous administration</h3>
+          <h3>Administration</h3>
           <p>Intravenous (IV) infusion and, in selected cases, intranasal atomization for CNS access via olfactory / trigeminal pathways.</p>
           <span class="meta">Same-visit</span>
         </div>
         <div class="step">
           <span class="num">Step 05</span>
-          <h3>Longitudinal follow-up</h3>
-          <p>Symptom-instrument re-measurement at 6 and 12 weeks; longer follow-up where indicated.</p>
+          <h3>Follow-up</h3>
+          <p>6 and 12 weeks; longer follow-up where indicated.</p>
           <span class="meta">6 &amp; 12 wks</span>
         </div>
       </div>
@@ -353,14 +362,14 @@
           <ul class="bullets" style="margin-top: 18px;">
             <li>Autologous biologics reduce the risks of immune rejection seen with donor-derived products.</li>
             <li>Published studies in COVID-19 populations report acceptable short-term safety profiles — though data remain limited.</li>
-            <li>This approach is not risk-free, and benefit is not guaranteed.</li>
-            <li>Only autologous materials are used. Patients undergo careful screening. Treatment is framed as investigational.</li>
+            <li>Despite only autologous materials being used, this approach is not risk-free.</li>
+            <li>Patients undergo careful screening. </li>
           </ul>
         </div>
         <div>
           <p class="eyebrow">Current evidence</p>
-          <h2 class="h2">Clinical outcomes &amp; current state of evidence.</h2>
-          <p class="body-lg" style="margin-top: 18px;">Clinical evidence for MSC-based biologics in Long COVID is <strong>preliminary</strong>. Early reports and small studies suggest possible improvement in fatigue, autonomic symptoms, and cognitive complaints. However:</p>
+          <h2 class="h2">Outcome Expectations</h2>
+          <p class="body-lg" style="margin-top: 18px;">Clinical evidence for MSC-based biologics in Long COVID is preliminary and the treatment is investigational. Early reports and small studies suggest possible improvement in fatigue, autonomic symptoms, and cognitive complaints. However:</p>
           <ul class="bullets">
             <li>Not all patients improve.</li>
             <li>Controlled Long COVID–specific trials are still ongoing.</li>
@@ -376,7 +385,7 @@
     <div class="inner">
       <p class="eyebrow">Is this you?</p>
       <h2 class="h2">A consultation is how we figure that out.</h2>
-      <p class="lede">Eligibility is decided case by case after a multi-visit workup. The list below is a starting point, not a checklist.</p>
+      <p class="lede">Eligibility is decided case by case. The list below is a starting point, not a checklist.</p>
       <div class="candidacy-grid" style="margin-top: 32px;">
         <div class="cand-col is-yes">
           <h3><span class="pip">✓</span> Likely worth a conversation</h3>
@@ -392,7 +401,7 @@
         <aside class="cand-col is-cta">
           <p class="eyebrow">Schedule a consultation</p>
           <h3>Let's talk through your case.</h3>
-          <p>A 45–60 minute consultation with Dr. Glowney reviews your history, prior workup, and whether this investigational approach fits your situation.</p>
+          <p>During a 45–60 minute consultation our team reviews your history, prior workup, and whether this investigational approach fits your situation.</p>
           <div class="actions">
             <a class="btn btn-primary" href="#schedule">Schedule a consultation →</a>
             <a class="btn btn-outline" href="tel:+17205506175">Call 720-550-6175</a>
@@ -405,9 +414,9 @@
   <!-- REGULATORY DISCLOSURE — verbatim ──────────────────────── -->
   <section id="reg">
     <div class="inner">
-      <p class="eyebrow">FDA regulatory disclosure</p>
-      <h2 class="h2">What we say — and what we do not say.</h2>
-      <p class="lede">The procedures described on this page involve autologous biologic products. The text below is presented verbatim and matches the regulatory framing on our live patient site.</p>
+      <p class="eyebrow">WE WANT TO BE CLEAR</p>
+      <h2 class="h2">FDA Regulatory Disclosure.</h2>
+      <p class="lede">The procedures described on this page involve autologous biologic products. </p>
 
       <div class="reg">
         <h3>Regulatory status and FDA position</h3>
@@ -467,13 +476,23 @@
           <li>Do not imply endorsement by the FDA.</li>
           <li>Do not claim universal effectiveness.</li>
         </ul>
-        <p>This page is intended to inform, not to promote unproven claims.</p>
+
+        <h3>FDA consumer guidance (for patient reference)</h3>
+        <p>The FDA encourages patients considering cellular therapies to:</p>
+        <ul>
+          <li>Ask whether a treatment is FDA-approved</li>
+          <li>Be skeptical of claims that sound "too good to be true"</li>
+          <li>Understand the difference between clinical research and established therapy</li>
+        </ul>
+        <p>Patients are encouraged to review FDA consumer resources on regenerative medicine and stem cell therapies.</p>
+
+        <p style="font-weight: 500">This page is intended to inform, not to promote unproven claims.</p>
       </div>
     </div>
   </section>
 
   <!-- REFERENCES ────────────────────────────────────────────── -->
-  <section class="refs alt">
+  <section class="refs alt" id="references">
     <div class="inner">
       <p class="eyebrow">References</p>
       <h2 class="h2">Selected literature.</h2>

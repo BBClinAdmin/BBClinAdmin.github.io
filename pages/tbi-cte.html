@@ -97,8 +97,9 @@
   .reg ul { padding: 0 0 0 18px; margin: 0 0 12px; }
   .reg strong { color: var(--ink); font-weight: 600; }
 
-  .refs ol { font-family: var(--font-body); font-size: 13.5px; color: var(--ink-2); line-height: 1.6; padding-left: 22px; margin: 24px 0 0; max-width: 80ch; }
-  .refs ol li { margin: 0 0 10px; }
+  .refs ol { font-family: var(--font-body); font-size: 13.5px; color: var(--ink-2); line-height: 1.6; list-style: none; counter-reset: ref; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 64px; padding: 0; margin: 24px 0 0; max-width: none; }
+  .refs ol li { counter-increment: ref; position: relative; padding-left: 30px; margin: 0; }
+  .refs ol li::before { content: counter(ref) "."; position: absolute; left: 0; top: 1px; font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
   .refs ol li em { color: var(--muted); }
 
   .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
@@ -120,7 +121,7 @@
 
   @media (max-width: 960px) {
     .svc-hero__grid { grid-template-columns: 1fr; gap: 32px; }
-    .mech-3, .related-grid { grid-template-columns: 1fr; }
+    .mech-3, .related-grid, .refs ol { grid-template-columns: 1fr; }
     .reg { padding: 24px; }
   }
 </style>
@@ -163,8 +164,8 @@
     <div class="svc-hero__grid">
       <div>
         <p class="eyebrow">Medical applications · investigational</p>
-        <h1 class="h1">Autologous biologic therapy and TBI &amp; CTE.</h1>
-        <p class="lede">An investigational, patient-derived procedure for selected adults with a history of traumatic brain injury and persistent post-traumatic symptoms — or symptom patterns consistent with chronic traumatic encephalopathy (CTE). Sometimes searched as stem cell therapy for concussion or CTE; clinically, the biologic material is autologous mesenchymal stromal cell–containing bone marrow aspirate, not a manufactured stem cell product.</p>
+        <h1 class="h1">Autologous biologic therapies for TBI &amp; CTE.</h1>
+        <p class="lede">An investigational, patient-derived procedure for selected adults with a history of traumatic brain injury and persistent post-traumatic symptoms — or symptom patterns consistent with chronic traumatic encephalopathy (CTE). </p>
         <div class="chips-row">
           <span class="chip">Post-concussion syndrome</span>
           <span class="chip">Repetitive head trauma</span>
@@ -204,7 +205,7 @@
       <div class="two-col is-balanced">
         <div>
           <p class="eyebrow">What it is</p>
-          <h2 class="h2">A parallel framework to our Long COVID program.</h2>
+          <h2 class="h2">Pioneering experimental biologic therapies for TBI and CTE</h2>
         </div>
         <div class="body-lg">
           <p>Boulder Biologics offers investigational autologous biologic procedures for selected individuals with a history of traumatic brain injury (TBI) and persistent post-traumatic symptoms. These procedures are also explored in patients with symptom patterns consistent with chronic traumatic encephalopathy (CTE), recognizing that <strong>CTE is a neuropathological diagnosis that cannot be definitively confirmed during life.</strong></p>
@@ -213,8 +214,8 @@
       </div>
 
       <p class="eyebrow" style="margin-top: 56px;">Shared biological features</p>
-      <h2 class="h2">Secondary injury, not the initial impact alone.</h2>
-      <p class="lede">As with Long COVID, chronic symptoms following TBI and repetitive head injury are increasingly understood to arise from secondary injury mechanisms, rather than from the initial mechanical insult alone.</p>
+      <h2 class="h2">Secondary injury, not just the initial impact.</h2>
+      <p class="lede">As with Long COVID, chronic symptoms following TBI and repetitive head injury are increasingly understood to arise from secondary injury mechanisms, rather than from just the first mechanical insult alone.</p>
 
       <div class="mech-3">
         <article class="mech-card">
@@ -246,7 +247,7 @@
       <h2 class="h2">Paracrine signaling, not neuronal replacement.</h2>
       <div class="two-col is-balanced" style="margin-top: 24px;">
         <div class="body-lg">
-          <p>Mesenchymal stromal cells (MSCs) are non-hematopoietic cells present in bone marrow and other tissues. Consistent with FDA-aligned scientific consensus, <strong>their primary in vivo activity is paracrine and immunomodulatory</strong>, not direct neuronal differentiation or replacement of brain tissue.</p>
+          <p>Mesenchymal stromal cells (MSCs) are non-hematopoietic cells present in bone marrow and other tissues. Consistent with FDA-aligned scientific consensus, <strong>their primary within the body activity is paracrine and immunomodulatory</strong>, not direct neuronal differentiation or replacement of brain tissue.</p>
           <p>As with our Long COVID program, we emphasize that any potential benefit arises from:</p>
           <ul class="bullets">
             <li>Immune modulation rather than immune suppression</li>
@@ -267,7 +268,7 @@
       </div>
 
       <p class="eyebrow" style="margin-top: 56px;">Rationale</p>
-      <h2 class="h2">Why investigators are studying MSC-containing biologics here.</h2>
+      <h2 class="h2">Why investigators are studying MSC-containing biologics.</h2>
       <div class="two-col" style="margin-top: 24px;">
         <div class="body-lg">
           <h3 class="h3">Immune system modulation.</h3>
@@ -291,13 +292,13 @@
   <!-- PROCEDURE ─────────────────────────────────────────────── -->
   <section class="alt" id="how">
     <div class="inner">
-      <p class="eyebrow">How the procedure works</p>
-      <h2 class="h2">Autologous bone marrow–derived procedure.</h2>
+      <p class="eyebrow">WHAT TO EXPECT</p>
+      <h2 class="h2">How the Procedure Works</h2>
       <p class="lede">This investigational approach mirrors the framework used in our Long COVID program. No donor cells, no culture expansion, no genetic modification, no manufactured cellular products.</p>
       <div class="steps-h is-5" style="margin-top: 36px;">
         <div class="step">
           <span class="num">Step 01</span>
-          <h3>Multi-visit workup</h3>
+          <h3>Consultation</h3>
           <p>Full medical history, imaging review, and case conference. Symptom timeline and prior care are reviewed before any procedure is scheduled.</p>
           <span class="meta">Pre-treatment</span>
         </div>
@@ -311,7 +312,7 @@
           <span class="num">Step 03</span>
           <h3>Filtration &amp; minimal processing</h3>
           <p>Bone marrow aspirate is filtered and minimally processed in our on-site lab; cellular components may be concentrated.</p>
-          <span class="meta">Same-day</span>
+          <span class="meta">~1-2 hrs</span>
         </div>
         <div class="step">
           <span class="num">Step 04</span>
@@ -335,18 +336,18 @@
       <div class="two-col">
         <div>
           <p class="eyebrow">Safety</p>
-          <h2 class="h2">What we tell patients about safety.</h2>
+          <h2 class="h2">How we frame safety</h2>
           <ul class="bullets" style="margin-top: 18px;">
             <li>Autologous biologics reduce immune rejection risks seen with donor-derived products.</li>
             <li>Published studies suggest acceptable short-term safety, but long-term efficacy is unknown.</li>
             <li>Not all patients improve; response cannot be predicted.</li>
-            <li>Only autologous material is used. Patients are screened carefully. Treatment is framed as experimental supportive care, not disease-modifying therapy.</li>
+            <li>Patients are screened carefully. </li>
           </ul>
         </div>
         <div>
           <p class="eyebrow">Current evidence</p>
           <h2 class="h2">Clinical outcomes: current state.</h2>
-          <p class="body-lg" style="margin-top: 18px;">Evidence for MSC-based biologics in TBI and suspected CTE is <strong>preliminary</strong>, derived largely from animal models, small human studies, and early-phase clinical investigations.</p>
+          <p class="body-lg" style="margin-top: 18px;">Evidence for MSC-based biologics in TBI and suspected CTE is preliminary, derived largely from animal models, small human studies, and early-phase clinical investigations. This treatment is experimental, supportive, care - not disease-modifying therapy. </p>
           <p class="body-lg">Reported improvements in some patients include memory and attention, cognitive endurance, neurofatigue, and autonomic symptoms. However:</p>
           <ul class="bullets">
             <li>Results are inconsistent.</li>
@@ -379,7 +380,7 @@
         <aside class="cand-col is-cta">
           <p class="eyebrow">Schedule a consultation</p>
           <h3>Let's talk through your case.</h3>
-          <p>A 45–60 min consultation with Dr. Glowney reviews your injury history, imaging, and current symptoms. We'll tell you honestly where the evidence is strong, where it's preliminary, and whether a research-trial path may fit you better than a clinical procedure.</p>
+          <p>A 45–60 min consultation our team reviews your injury history, imaging, and current symptoms. We'll tell you honestly where the evidence is strong, where it's preliminary, and whether a research-trial path may fit you better than a clinical procedure.</p>
           <div class="actions">
             <a class="btn btn-primary" href="#schedule">Schedule a consultation →</a>
             <a class="btn btn-outline" href="tel:+17205506175">Call 720-550-6175</a>
@@ -392,9 +393,8 @@
   <!-- REGULATORY DISCLOSURE — verbatim ──────────────────────── -->
   <section id="reg">
     <div class="inner">
-      <p class="eyebrow">FDA regulatory disclosure</p>
-      <h2 class="h2">What we say — and what we do not say.</h2>
-      <p class="lede">Verbatim regulatory framing from our live patient site. Long COVID, TBI, and CTE share the same FDA posture at Boulder Biologics.</p>
+      <p class="eyebrow">WE WANT TO BE CLEAR</p>
+      <h2 class="h2">FDA Regulatory Disclosure</h2>
 
       <div class="reg">
         <h3>Regulatory status</h3>
@@ -492,7 +492,7 @@
       <div>
         <p class="eyebrow on-dark">Schedule a TBI / CTE consultation</p>
         <h2 class="h2">Tell us about your case.</h2>
-        <p>Dr. Glowney reviews your injury history, imaging, and current symptoms — and tells you honestly whether this investigational approach fits your case or whether another path makes more sense.</p>
+        <p>Our team will review your injury history, imaging, and current symptoms — and tell you honestly whether this investigational approach fits your case or whether another path makes more sense.</p>
         <a class="btn btn-ghost-light" href="tel:+17205506175">Or call 720-550-6175</a>
       </div>
       <form class="cta-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Request received ✓'; this.querySelector('button').disabled=true;">

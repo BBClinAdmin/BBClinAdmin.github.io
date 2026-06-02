@@ -2,7 +2,7 @@
    v2-service.css
    Boulder Biologics — V2 service-page vocabulary.
    Tokens + every section style. Variations compose, not reinvent.
-   Mid-fi → hi-fi transitional: real type rhythm, placeholder imagery.
+   Service-page vocabulary — real type rhythm and imagery.
    ============================================================ */
 
 :root {
@@ -81,18 +81,6 @@ body {
 a { color: inherit; }
 img { display: block; max-width: 100%; }
 p { margin: 0 0 14px; color: var(--ink-2); }
-
-/* ── Variant build-banner ─────────────────────────────────────────── */
-.build-banner {
-  position: fixed; right: 18px; bottom: 18px; z-index: 80;
-  background: var(--white); border: 1px solid var(--ink);
-  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--muted);
-  padding: 7px 10px; border-radius: 4px;
-  box-shadow: var(--shadow-md);
-  max-width: 360px; line-height: 1.5;
-}
-.build-banner strong { color: var(--ink); font-weight: 500; }
 
 /* ── Type ─────────────────────────────────────────────────────────── */
 .eyebrow {
@@ -488,6 +476,7 @@ section.tight { padding: 56px var(--gutter); }
 .cta-form input::placeholder { color: rgba(255,255,255,0.4); }
 .cta-form .btn { justify-content: center; margin-top: 6px; }
 .cta-form .micro { all: unset; display: block; font-family: var(--font-body); font-size: 11.5px; color: rgba(255,255,255,0.5); margin-top: 4px; aspect-ratio: auto; background: none; border: 0; padding: 0; }
+.cta-form .micro::after { content: none; }
 
 /* ── Footer ──────────────────────────────────────────────────────── */
 footer.site-footer { background: var(--paper-2); color: var(--ink-2); padding: 64px var(--gutter) 32px; border-top: 1px solid var(--rule); }
@@ -503,7 +492,7 @@ footer.site-footer { background: var(--paper-2); color: var(--ink-2); padding: 6
 /* ---------- Standing regulatory disclaimer (cellular-therapy-adjacent pages) ---------- */
 .footer-disclaimer { max-width: var(--max); margin: 0 auto 24px; padding: 22px 24px; border: 1px solid var(--rule); border-radius: 8px; background: var(--white); }
 .footer-disclaimer__label { font-family: var(--font-body); font-size: 10.5px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brand-accent-dim); margin: 0 0 10px; }
-.footer-disclaimer__body { font-family: var(--font-body); font-size: 12.5px; line-height: 1.6; color: var(--ink-2); margin: 0; max-width: 92ch; }
+.footer-disclaimer__body { font-family: var(--font-body); font-size: 12.5px; line-height: 1.6; color: var(--ink-2); margin: 0; max-width: none; }
 .footer-disclaimer__body strong { color: var(--ink); font-weight: 600; }
 .footer-disclaimer__body a { color: var(--brand-primary); text-decoration: underline; text-underline-offset: 2px; }
 .footer-disclaimer__body a:hover { color: var(--brand-accent-dim); }

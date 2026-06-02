@@ -37,7 +37,7 @@
     border-radius: var(--r-lg); padding: 36px 40px;
     display: flex; flex-direction: column; gap: 20px;
   }
-  .contact-card .lbl {
+  .contact-card .lbl, .hours-card .lbl {
     font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.12em;
     text-transform: uppercase; color: var(--muted); margin: 0;
   }
@@ -57,8 +57,8 @@
   }
   .contact-card__row:first-of-type { border-top: 1px solid var(--rule); margin-top: 4px; }
   .contact-card__row dt {
-    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em;
-    color: var(--muted); text-transform: uppercase;
+    font-family: var(--font-display); font-weight: 500;
+    color: var(--ink);
   }
   .contact-card__row dd { margin: 0; color: var(--ink); }
   .contact-card__row dd a {
@@ -71,19 +71,19 @@
 
   /* Hours */
   .hours-card {
-    background: var(--paper-2); border: 1px solid var(--rule);
+    background: var(--white); border: 1px solid var(--rule);
     border-radius: var(--r-lg); padding: 36px 40px;
-    display: flex; flex-direction: column; gap: 14px;
+    display: flex; flex-direction: column; gap: 20px;
   }
   .hours-card h2 {
-    font-family: var(--font-display); font-weight: 700; font-size: 22px;
+    font-family: var(--font-display); font-weight: 600; font-size: 22px;
     margin: 0; letter-spacing: -0.01em;
   }
   .hours-card .lede {
     font-family: var(--font-serif); font-size: 16px; color: var(--ink-2);
     margin: 0 0 8px;
   }
-  .hours-list { list-style: none; margin: 0; padding: 0; }
+  .hours-list { list-style: none; margin: 0 auto; padding: 0; max-width: 380px; width: 100%; }
   .hours-list li {
     display: grid; grid-template-columns: 1fr auto; gap: 18px;
     padding: 14px 0; border-top: 1px solid var(--rule);
@@ -107,22 +107,12 @@
   }
   .map-slot {
     background: var(--paper-2); border: 1px solid var(--rule);
-    border-radius: var(--r-lg); min-height: 380px;
-    position: relative; overflow: hidden;
-    display: flex; align-items: flex-end; padding: 18px;
-  }
-  .map-slot::before {
-    content: ''; position: absolute; inset: 16px;
-    border: 1px dashed var(--bb-stone-300); border-radius: 6px;
-    background:
-      repeating-linear-gradient(0deg, transparent 0 40px, rgba(0,0,0,0.04) 40px 41px),
-      repeating-linear-gradient(90deg, transparent 0 40px, rgba(0,0,0,0.04) 40px 41px);
-  }
-  .map-slot::after {
-    content: 'Map placeholder · 4745 Arapahoe Ave, Suite 300 · Boulder, CO';
+    border-radius: var(--r-lg); min-height: 380px; overflow: hidden;
     position: relative;
-    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--muted);
-    background: rgba(255,255,255,0.9); padding: 5px 9px; border-radius: 4px;
+  }
+  .map-slot iframe {
+    display: block; width: 100%; height: 100%;
+    position: absolute; inset: 0; border: 0;
   }
   .directions-card {
     background: var(--white); border: 1px solid var(--rule);
@@ -135,8 +125,8 @@
   }
   .directions-card dl { margin: 0; display: grid; grid-template-columns: 110px 1fr; gap: 12px 22px; }
   .directions-card dt {
-    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em;
-    color: var(--muted); text-transform: uppercase;
+    font-family: var(--font-display); font-weight: 500; font-size: 14.5px;
+    color: var(--ink);
   }
   .directions-card dd { margin: 0; font-size: 14.5px; color: var(--ink-2); line-height: 1.55; }
 
@@ -208,12 +198,8 @@
     <div class="contact-hero__grid">
       <div>
         <p class="eyebrow">Location and contact</p>
-        <h1 class="h1">Boulder Biologics — Boulder, Colorado.</h1>
-        <p class="lede">On the Boulder Community Health Foothills Campus. Phone, email, hours, and directions below — or reach us directly with the buttons in the contact card.</p>
-      </div>
-      <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; color: var(--muted); text-transform: uppercase; padding-bottom: 6px;">
-        <div>4745 Arapahoe Ave · Suite 300</div>
-        <div>Boulder, CO 80303</div>
+        <h1 class="h1">Boulder Biologics  in Boulder, Colorado.</h1>
+        <p class="lede">We're in the Boulder Community Health Foothills Campus. </p>
       </div>
     </div>
   </section>
@@ -225,7 +211,7 @@
         <article class="contact-card" aria-label="Contact information">
           <p class="lbl">Contact</p>
           <p class="addr">4745 Arapahoe Ave, Suite 300<br />Boulder, CO 80303</p>
-          <p class="campus">On the Boulder Community Health Foothills Campus, Suite 300 — third floor.</p>
+          <p class="campus">From the main lobby, take the elevators in front of the coffee kiosk to the 3rd floor. </p>
           <dl style="margin: 0;">
             <div class="contact-card__row">
               <dt>Phone</dt>
@@ -251,8 +237,8 @@
         </article>
 
         <aside class="hours-card" aria-label="Office hours">
-          <p class="eyebrow">Office hours</p>
-          <h2>Monday through Friday, with a midweek pause.</h2>
+          <p class="lbl">CLINIC HOURS</p>
+          <h2>Monday - Friday, with a midweek break.</h2>
           <p class="lede">Clinic hours are listed below. After-hours messages are returned on the next business day.</p>
           <ul class="hours-list">
             <li><span class="day">Monday</span><span class="time">8 AM – 5 PM</span></li>
@@ -274,17 +260,24 @@
       <p class="eyebrow">Office location</p>
       <h2 class="h2">Getting to the clinic.</h2>
       <div class="map-grid" style="margin-top: 32px;">
-        <div class="map-slot" role="img" aria-label="Map of Boulder Biologics location"></div>
+        <div class="map-slot" role="img" aria-label="Map of Boulder Biologics location">
+          <iframe
+            title="Map to Boulder Biologics, 4745 Arapahoe Ave Ste 300, Boulder, CO 80303"
+            src="https://www.google.com/maps?q=4745+Arapahoe+Ave+Suite+300+Boulder+CO+80303&amp;output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
         <div class="directions-card">
           <h3>Directions &amp; access</h3>
           <dl>
             <dt>Campus</dt><dd>Boulder Community Health Foothills Campus.</dd>
             <dt>Suite</dt><dd>Suite 300 · third floor. Elevator-served.</dd>
-            <dt>Parking</dt><dd>On-site lot. Accessible parking adjacent to the building entrance.</dd>
-            <dt>Accessibility</dt><dd>Step-free route from parking through the lobby to the clinic.</dd>
-            <dt>Transit</dt><dd>RTD service along Arapahoe Avenue. Check current schedules.</dd>
+            <dt>Parking</dt><dd>On-site lot and garage. Accessible parking adjacent to the building entrance.</dd>
+            <dt>Accessibility</dt><dd>wheelchair accessible route from parking through the lobby to the clinic.</dd>
+            <dt>Transit</dt><dd><a href="https://www.rtd-denver.com" target="_blank" rel="noopener">RTD service</a> along Arapahoe Avenue. Check current schedules.</dd>
             <dt>From DIA</dt><dd>~45 minutes by car via E-470 → US-36 west.</dd>
-            <dt>Out-of-town</dt><dd>We see patients from across Colorado and beyond — call ahead so we can coordinate same-week scheduling.</dd>
+            <dt>Out-of-town</dt><dd>We see patients from across the United States— call ahead so we can coordinate scheduling.</dd>
           </dl>
         </div>
       </div>
