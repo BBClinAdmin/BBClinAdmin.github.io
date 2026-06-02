@@ -17,6 +17,7 @@
 .nav-toggle {
   display: none;                 /* shown only at <=1024px (rule below) */
   flex: 0 0 auto;
+  flex-direction: column;        /* stack the three bars vertically */
   align-items: center;
   justify-content: center;
   width: 44px;                   /* 44px min tap target */
